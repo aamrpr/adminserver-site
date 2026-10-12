@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdminServer — Documentation</title>
+<meta name="description" content="A complete guide to the AdminServer hosting panel: every section, page and tab, for administrators and account owners. Arabic supported.">
+<meta name="color-scheme" content="dark light">
+<style>
+  :root{
+    --bg:#0b1512; --surface:#13231f; --surface-2:#182c27; --text:#e6f0ec; --muted:#93a8a1;
+    --border:#22372f; --border-strong:#32493f; --accent:#3fcf9a; --accent-2:#5fd9b0;
+    --accent-soft:#143b31; --radius:16px; --max:1180px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:"Segoe UI",system-ui,-apple-system,"Noto Sans Arabic",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:
+      radial-gradient(1200px 600px at 100% -10%,rgba(63,207,154,.12),transparent 60%),
+      radial-gradient(900px 500px at 0% 10%,rgba(63,207,154,.07),transparent 55%),
+      var(--bg);
+    color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:11px;
+    font-weight:700;font-size:14px;border:1px solid var(--border-strong);background:var(--surface);
+    color:var(--text);cursor:pointer;transition:transform .12s,border-color .12s,background .12s}
+  .btn:hover{transform:translateY(-1px);border-color:var(--accent);text-decoration:none}
+  .btn.primary{background:var(--accent);color:#06231b;border-color:var(--accent)}
+  .btn svg{width:17px;height:17px}
+
+  header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
+    background:rgba(11,21,18,.78);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;gap:14px;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--text)}
+  .brand:hover{text-decoration:none}
+  .brand .dot{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--accent),#2f9e78);color:#06231b}
+  .brand .dot svg{width:17px;height:17px}
+  .nav .spacer{flex:1}
+  .lang{font-size:13px}
+
+  /* layout: sticky table of contents + article */
+  .doc{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:34px 20px 80px;align-items:start}
+  .toc{position:sticky;top:86px;max-height:calc(100vh - 110px);overflow:auto;
+    border-inline-end:1px solid var(--border);padding-inline-end:16px}
+  .toc h4{margin:16px 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .toc h4:first-child{margin-top:0}
+  .toc a{display:block;padding:5px 10px;border-radius:8px;color:var(--muted);font-size:14px;font-weight:600}
+  .toc a:hover{color:var(--text);background:var(--surface);text-decoration:none}
+  article{min-width:0}
+  .lede{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:18px;margin:0 0 30px}
+  section.doc-sec{scroll-margin-top:80px;padding:26px 0;border-top:1px solid var(--border)}
+  section.doc-sec:first-of-type{border-top:0}
+  section.doc-sec h2{font-size:25px;letter-spacing:-.01em;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+  section.doc-sec h2 .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;
+    background:var(--accent-soft);color:var(--accent)}
+  section.doc-sec h2 .ic svg{width:19px;height:19px}
+  section.doc-sec h3{font-size:17px;margin:22px 0 6px;color:var(--text)}
+  section.doc-sec p{color:var(--muted);margin:8px 0}
+  .tag{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;vertical-align:middle;
+    background:var(--accent-soft);color:var(--accent);border:1px solid var(--border-strong);margin-inline-start:6px}
+  .tag.owner{background:#1b2a40;color:#8bb4f0;border-color:#2b3f5e}
+  ul.clean{margin:10px 0;padding-inline-start:20px;color:var(--muted)}
+  ul.clean li{margin:6px 0}
+  ul.clean li b{color:var(--text)}
+  .note{background:var(--surface);border:1px solid var(--border);border-inline-start:3px solid var(--accent);
+    border-radius:12px;padding:14px 16px;margin:16px 0;color:var(--muted);font-size:14.5px}
+  .note b{color:var(--text)}
+  code{font-family:var(--mono);color:var(--accent);background:var(--surface);padding:1px 6px;border-radius:6px;font-size:.92em}
+  .steps{counter-reset:step;list-style:none;padding:0;margin:12px 0;display:grid;gap:10px}
+  .steps li{position:relative;padding-inline-start:40px;color:var(--muted)}
+  .steps li::before{counter-increment:step;content:counter(step);position:absolute;inset-inline-start:0;top:0;
+    width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-weight:800;font-size:13px;
+    background:var(--accent-soft);color:var(--accent);border:1px solid var(--border-strong)}
+  footer{border-top:1px solid var(--border);padding:30px 0;color:var(--muted);font-size:14px}
+  .foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .foot .spacer{flex:1}
+  [dir=rtl] .toc{border-inline-end:1px solid var(--border)}
+  [hidden]{display:none!important}
+  @media(max-width:900px){
+    .doc{grid-template-columns:1fr;gap:0}
+    .toc{position:static;max-height:none;border-inline-end:0;border-bottom:1px solid var(--border);
+      padding-inline-end:0;padding-bottom:16px;margin-bottom:18px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>AdminServer</a>
+    <div class="spacer"></div>
+    <a class="btn" href="index.html" id="homeBtn">← Home</a>
+    <button class="btn lang" id="lang" type="button">ع</button>
+  </div>
+</header>
+
+<main>
+<!-- ================= ENGLISH ================= -->
+<div class="doc wrap" id="en" dir="ltr">
+  <aside class="toc" aria-label="Contents">
+    <h4>Getting started</h4>
+    <a href="#en-intro">What AdminServer is</a>
+    <a href="#en-signin">Signing in &amp; the top bar</a>
+    <h4>For administrators</h4>
+    <a href="#en-home">Home — server dashboard</a>
+    <a href="#en-security">Security Center</a>
+    <a href="#en-sshkeys">SSH Keys</a>
+    <a href="#en-accounts">Accounts</a>
+    <a href="#en-php">PHP Versions</a>
+    <a href="#en-nodever">Node.js Versions</a>
+    <a href="#en-dns">DNS</a>
+    <a href="#en-mail">Mail</a>
+    <a href="#en-monitor">Monitoring</a>
+    <a href="#en-audit">Activity Log</a>
+    <a href="#en-network">Network</a>
+    <a href="#en-settings">Settings</a>
+    <a href="#en-billing">Billing &amp; Plans</a>
+    <h4>Managing a website</h4>
+    <a href="#en-site">Sites &amp; their tabs</a>
+    <a href="#en-overview">Overview</a>
+    <a href="#en-files">File Manager</a>
+    <a href="#en-subs">Sub-domains</a>
+    <a href="#en-sitephp">PHP Configuration</a>
+    <a href="#en-sitenode">Node.js</a>
+    <a href="#en-db">Databases</a>
+    <a href="#en-sitedns">DNS</a>
+    <a href="#en-sitemail">Mail</a>
+    <a href="#en-traffic">Traffic</a>
+    <a href="#en-terminal">Terminal</a>
+    <h4>Everyone</h4>
+    <a href="#en-subsite">Sub-domain as a site</a>
+    <a href="#en-ownerbackups">Backups</a>
+    <a href="#en-update">Updating the panel</a>
+    <a href="#en-model">How your data is kept safe</a>
+  </aside>
+
+  <article>
+    <h1 class="lede">AdminServer Documentation</h1>
+    <p class="sub">A complete, plain guide to every part of the panel — for the administrator who runs the server, and for the account owner who runs one site on it.</p>
+
+    <section class="doc-sec" id="en-intro">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span>What AdminServer is</h2>
+      <p>AdminServer is a hosting control panel for AlmaLinux, Rocky and RHEL (9 &amp; 10). It turns one server into a place where several websites live side by side, each isolated from the others, and gives you a browser page to manage all of it — no SSH required for everyday work.</p>
+      <h3>Two kinds of user</h3>
+      <ul class="clean">
+        <li><b>Administrator</b> — runs the whole server: creates accounts, installs PHP and Node.js versions, hardens security, manages DNS and mail, takes backups, and watches the system.</li>
+        <li><b>Account owner</b> — manages their own account only: their websites, files, databases, mailboxes and backups. They never see other accounts or the server's internals.</li>
+      </ul>
+      <h3>How the screen is laid out</h3>
+      <ul class="clean">
+        <li><b>Top bar</b> — language toggle, light/dark mode, notifications, server-health badge, and the server's host name.</li>
+        <li><b>Side menu</b> (left) — the sections you are allowed to open, grouped by purpose. For an open account it also lists its sites, and under each site its pages and sub-domains.</li>
+        <li><b>Breadcrumb</b> (top of the page) — shows where you are and lets you step back up.</li>
+      </ul>
+      <div class="note">Every address is a real link. Reloading the page, or sharing a link, lands on exactly the same place.</div>
+    </section>
+
+    <section class="doc-sec" id="en-signin">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>Signing in &amp; the top bar</h2>
+      <p>After install, the panel prints a one-time password and a URL like <code>https://SERVER_IP:8443</code>. Open it, sign in, and change the initial password when asked — the panel refuses to do anything else until you do.</p>
+      <p>If you ever forget it, run on the server: <code>sudo adminserver reset-password</code>.</p>
+      <h3>The top bar, left to right</h3>
+      <ul class="clean">
+        <li><b>Language</b> — switch the whole panel between English and Arabic at any time.</li>
+        <li><b>Light / dark mode</b> — the moon/sun button; your choice is remembered.</li>
+        <li><b>Notifications</b> — the bell, with a red count of unread items.</li>
+        <li><b>Server health</b> — a percentage badge (admin only); click it for the Security Center.</li>
+        <li><b>Host name</b> — the server this panel runs on.</li>
+      </ul>
+    </section>
+
+    <section class="doc-sec" id="en-home">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span>Home — server dashboard <span class="tag">Admin</span></h2>
+      <p>The administrator's home page is the server at a glance: an overall health percentage, CPU / memory / disk use, how many accounts and sites are hosted, and a short list of anything that needs attention. An account owner's home is their own account instead, with their sites and disk usage.</p>
+    </section>
+
+    <section class="doc-sec" id="en-security">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>Security Center <span class="tag">Admin</span></h2>
+      <p>The heart of the panel. It runs more than 28 checks on how the server is hardened — the firewall, SELinux, SSH, kernel settings, service isolation, and more. Each check is one row:</p>
+      <ul class="clean">
+        <li>A green / red dot tells you if it passes.</li>
+        <li>An <b>explanation</b> in plain words: what it is and why it matters.</li>
+        <li>A <b>Fix</b> button that applies the correct setting in one click.</li>
+        <li>A <b>safe rollback</b> — if a fix ever causes trouble, you can undo it.</li>
+      </ul>
+      <div class="note">Aim for 100%. A freshly installed server reaches it by opening this page and fixing each item — the result is the same hardened server every time.</div>
+    </section>
+
+    <section class="doc-sec" id="en-sshkeys">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="5"/><path d="M11.5 11.5 21 21M17 17l2-2M14 14l2-2"/></svg></span>SSH Keys <span class="tag">Admin</span></h2>
+      <p>Manage the public keys that may log into the server over SSH as root. Add your key here so password SSH can be turned off (the Security Center recommends it), leaving key-only access.</p>
+    </section>
+
+    <section class="doc-sec" id="en-accounts">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4a3.5 3.5 0 0 1 0 7M21 20c0-3-1.8-5.6-4.5-6"/></svg></span>Accounts <span class="tag">Admin</span></h2>
+      <p>An <b>account</b> is one customer or project. Each account is a real Linux user with its own home, its own process slice, its own disk quota — fully walled off from the others.</p>
+      <h3>List Accounts</h3>
+      <p>Every account with its site count and disk use. Open one to see its websites, reset its password, or delete it.</p>
+      <h3>Create Account</h3>
+      <p>Pick a name (lowercase letters and digits). The panel creates the Linux user, its home, its slice and quota, and gives you a one-time password to hand over.</p>
+      <h3>Resources &amp; limits</h3>
+      <p>Each account has a <b>Resources</b> page showing live CPU, memory and disk use. The administrator can cap an account here (CPU share, memory, number of processes, disk quota) so one account can never starve the rest. Owners see their usage but not the limits card.</p>
+    </section>
+
+    <section class="doc-sec" id="en-php">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>PHP Versions <span class="tag">Admin</span></h2>
+      <p>Install several PHP versions side by side (e.g. 8.1, 8.2, 8.3). They are installed once, centrally and read-only; each site then picks the one it runs on. This page shows each version, how many sites use it, which are past end-of-life, and lets you install or remove one and manage its extensions.</p>
+      <div class="note">A version in use by any site or sub-domain cannot be removed until nothing uses it.</div>
+    </section>
+
+    <section class="doc-sec" id="en-nodever">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span>Node.js Versions <span class="tag">Admin</span></h2>
+      <p>Exactly like PHP, but for Node.js. Install the majors you want to offer (e.g. 20, 22, 24); the panel downloads the official release, checks its checksum, and stores it read-only. A site or sub-domain that runs as a Node app then chooses one of these.</p>
+    </section>
+
+    <section class="doc-sec" id="en-dns">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>DNS <span class="tag">Admin</span></h2>
+      <p>If you want the server to answer DNS for its domains, set the server's name servers here (ns1…, ns2…). Once set, each site gets a <b>DNS</b> tab where its zone and records are managed on this server directly.</p>
+    </section>
+
+    <section class="doc-sec" id="en-mail">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>Mail <span class="tag">Admin</span></h2>
+      <p>Turn on mail hosting for the server (Postfix + Dovecot, with anti-spoofing). This sets the mail host name once; afterwards each site can enable mail and create mailboxes from its own Mail tab.</p>
+    </section>
+
+    <section class="doc-sec" id="en-monitor">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>Monitoring <span class="tag">Admin</span></h2>
+      <p>Every active session: who is signed in, from which address and country. You can sign a suspicious session out. All of it is kept locally — no external service ever sees it.</p>
+    </section>
+
+    <section class="doc-sec" id="en-audit">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>Activity Log <span class="tag">Admin</span></h2>
+      <p>A record of every sign-in and every command the panel ran — with the user, address and time. Use it to see exactly what happened and when.</p>
+    </section>
+
+    <section class="doc-sec" id="en-network">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></span>Network <span class="tag">Admin</span></h2>
+      <p>The server's network traffic over time, so you can see spikes and which hosts are busiest.</p>
+    </section>
+
+    <section class="doc-sec" id="en-settings">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7 19.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3 15H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.7 9L4.6 9A2 2 0 1 1 7.4 6.1l.1.1A1.6 1.6 0 0 0 10 5.3V5a2 2 0 1 1 4 0v.1A1.6 1.6 0 0 0 17 6.7l.1-.1A2 2 0 1 1 19.9 9.4l-.1.1A1.6 1.6 0 0 0 20.9 12H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span>Settings <span class="tag">Admin</span></h2>
+      <p>Panel-wide preferences: for example, lock each session to the address it was created at (so a stolen cookie is useless elsewhere), and other safety options. Account owners have their own smaller settings (password, notifications).</p>
+    </section>
+
+    <section class="doc-sec" id="en-billing">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></span>Billing &amp; Plans <span class="tag">Admin</span></h2>
+      <p>The business side, when you use it: the plans you offer, who owes what (orders &amp; invoices), and requests to join. An owner sees only their own plan and invoices under <b>Billing</b>.</p>
+    </section>
+
+    <section class="doc-sec" id="en-site">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg></span>Sites &amp; their tabs</h2>
+      <p>A <b>site</b> is one domain (e.g. <code>example.com</code>). Add one from inside an account; its files live in the account's home. Open a site and it unfolds in the side menu into a set of tabs. The tabs shown depend on the site's type: a PHP site shows the PHP tab, a Node site shows the Node tab.</p>
+    </section>
+
+    <section class="doc-sec" id="en-overview">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h14V9.5"/></svg></span>Overview</h2>
+      <p>The site at a glance: SSL certificate status, whether DNS points to this server, the site type, and the number of databases. Here you also:</p>
+      <ul class="clean">
+        <li>Choose the <b>site type</b> — PHP or Node.js. Picking PHP stops any Node app; picking Node hands every request to your Node process.</li>
+        <li>Choose the <b>web server</b> for a PHP site — nginx alone, or Apache behind it (for <code>.htaccess</code>).</li>
+        <li>See and fix any <b>issues</b> (missing certificate, DNS not pointing here) in one click.</li>
+        <li>Remove the site (its files stay in the account's home).</li>
+      </ul>
+    </section>
+
+    <section class="doc-sec" id="en-files">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>File Manager</h2>
+      <p>A full file manager for the site's folder: browse, upload by drag-and-drop, create, rename, move, delete, and extract archives. A built-in code editor (Monaco) opens text files for editing. Everything runs as the account's own user, so permissions stay correct.</p>
+    </section>
+
+    <section class="doc-sec" id="en-subs">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/></svg></span>Sub-domains</h2>
+      <p>Host names under the site (e.g. <code>blog.example.com</code>), each served from a folder inside the site and each with its own certificate. Create one with just a name; it gets a folder automatically. Each row shows its type and has an <b>Overview</b> button that opens the sub-domain as its own small site (see below), and a <b>Remove</b> button.</p>
+    </section>
+
+    <section class="doc-sec" id="en-sitephp">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>PHP Configuration</h2>
+      <p>For a PHP site. Three parts:</p>
+      <ul class="clean">
+        <li><b>Version</b> — pick which installed PHP version this site runs on; the change is immediate.</li>
+        <li><b>Extensions</b> — turn on the extensions this site needs, from those the administrator installed.</li>
+        <li><b>Options</b> — adjust the safe <code>php.ini</code> settings (upload size, memory, time limits…).</li>
+      </ul>
+    </section>
+
+    <section class="doc-sec" id="en-sitenode">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/></svg></span>Node.js</h2>
+      <p>For a Node site. Enable the app, choose its Node version, the start command (e.g. <code>npm start</code>), the app folder, and any environment variables. The app runs as a long-lived service in the account's slice; nginx forwards every request to it over a private socket (WebSockets included). The page shows whether it is running, its recent logs, and buttons to start / stop / restart it and to run <code>npm install</code>.</p>
+    </section>
+
+    <section class="doc-sec" id="en-db">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>Databases</h2>
+      <p>Create a MariaDB database for the site, each with its own user. The panel shows the connection details and a one-time password, resets a password, opens phpMyAdmin for one database, or deletes a database. Delete a database before removing its site so its data is never lost by accident.</p>
+    </section>
+
+    <section class="doc-sec" id="en-sitedns">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg></span>DNS</h2>
+      <p>If the server runs DNS, this tab manages the site's zone and records (A, AAAA, CNAME, MX, TXT, …). If DNS is managed elsewhere, the panel still shows exactly which records to add there.</p>
+    </section>
+
+    <section class="doc-sec" id="en-sitemail">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>Mail</h2>
+      <p>Enable mail for the domain, create and delete mailboxes, change their passwords, and read the exact DNS records (SPF, DKIM, MX…) the mail needs — with one click to publish them if the zone is on this server. Connection details for any mail client are shown, and webmail if it is set up.</p>
+    </section>
+
+    <section class="doc-sec" id="en-traffic">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></span>Traffic</h2>
+      <p>The site's visitors and requests over time (hour, day, week…), with a breakdown by host. Each account has a wider traffic view too.</p>
+    </section>
+
+    <section class="doc-sec" id="en-terminal">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg></span>Terminal</h2>
+      <p>A web terminal that runs <b>as the account's own user</b>, inside an isolated session — handy for composer, git, or quick commands without full SSH access. It can never reach another account or the system.</p>
+    </section>
+
+    <section class="doc-sec" id="en-subsite">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/></svg></span>A sub-domain as its own site</h2>
+      <p>Each sub-domain is a small site in its own right. It appears in the side menu under its parent, and opening it (or its <b>Overview</b> button) gives it its own pages:</p>
+      <ul class="clean">
+        <li><b>Overview</b> — its type, SSL, DNS, folder, issues and removal.</li>
+        <li><b>Files</b> — jumps to its own folder in the file manager.</li>
+        <li><b>PHP</b> or <b>Node</b> — its own PHP version, or its own Node app, independent of the parent site.</li>
+      </ul>
+      <p>It keeps all of this while living inside the parent account's user and slice, so it never crosses the account's isolation.</p>
+    </section>
+
+    <section class="doc-sec" id="en-ownerbackups">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.5 19h9a4 4 0 0 0 .4-7.98 5.5 5.5 0 0 0-10.64-1.17A3.75 3.75 0 0 0 7.5 19z"/><path d="M12 21v-7M9.5 16.5 12 14l2.5 2.5"/></svg></span>Backups <span class="tag owner">Everyone</span></h2>
+      <p>Take a backup of an account, and send it off the server so a lost server is never a lost backup. Add a destination — <b>MEGA</b> or any <b>S3-compatible</b> storage (Backblaze B2, Wasabi, Cloudflare R2) — test it, then create backups and restore from them in a click.</p>
+    </section>
+
+    <section class="doc-sec" id="en-update">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11A8 8 0 1 0 6 6"/><path d="M4 4v4h4"/><path d="m16 13 4 4 4-4" transform="translate(-4 -2)"/></svg></span>Updating the panel <span class="tag">Admin</span></h2>
+      <p>The panel checks an official channel for new versions. When one is available, a banner offers to update. The update is verified twice — its checksum and a cryptographic signature — and refused if either fails, so only a genuine build from the real publisher is ever installed. The panel installs it and restarts itself; your sites keep running.</p>
+    </section>
+
+    <section class="doc-sec" id="en-model">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span>How your data is kept safe</h2>
+      <ul class="clean">
+        <li><b>Privilege separation</b> — a small privileged helper does the real work; the web face has no powers of its own and only asks for named operations.</li>
+        <li><b>Per-account isolation</b> — a Linux user and slice per account, with CPU, memory, process and disk limits, enforced by SELinux. An attacker inside one site never reaches another.</li>
+        <li><b>Verified updates</b> — every update is checksum- and signature-checked before it is installed.</li>
+        <li><b>Local records</b> — sign-ins and commands are logged on the server itself; no external service is involved.</li>
+      </ul>
+      <div class="note">Questions or a problem? Open the Security Center first — it explains and fixes most things on its own.</div>
+    </section>
+  </article>
+</div>
+
+<!-- ================= ARABIC ================= -->
+<div class="doc wrap" id="ar" dir="rtl" hidden>
+  <aside class="toc" aria-label="المحتويات">
+    <h4>البداية</h4>
+    <a href="#ar-intro">ما هي AdminServer</a>
+    <a href="#ar-signin">تسجيل الدخول والشريط العلوي</a>
+    <h4>للمدير</h4>
+    <a href="#ar-home">الرئيسية — لوحة السيرفر</a>
+    <a href="#ar-security">مركز الحماية</a>
+    <a href="#ar-sshkeys">مفاتيح SSH</a>
+    <a href="#ar-accounts">الحسابات</a>
+    <a href="#ar-php">إصدارات PHP</a>
+    <a href="#ar-nodever">إصدارات Node.js</a>
+    <a href="#ar-dns">DNS</a>
+    <a href="#ar-mail">البريد</a>
+    <a href="#ar-monitor">المراقبة</a>
+    <a href="#ar-audit">سجل العمليات</a>
+    <a href="#ar-network">الشبكة</a>
+    <a href="#ar-settings">الإعدادات</a>
+    <a href="#ar-billing">الفوترة والخطط</a>
+    <h4>إدارة موقع</h4>
+    <a href="#ar-site">المواقع وتبويباتها</a>
+    <a href="#ar-overview">نظرة عامة</a>
+    <a href="#ar-files">مدير الملفات</a>
+    <a href="#ar-subs">النطاقات الفرعية</a>
+    <a href="#ar-sitephp">تكوين PHP</a>
+    <a href="#ar-sitenode">Node.js</a>
+    <a href="#ar-db">قواعد البيانات</a>
+    <a href="#ar-sitedns">DNS</a>
+    <a href="#ar-sitemail">البريد</a>
+    <a href="#ar-traffic">الزيارات</a>
+    <a href="#ar-terminal">الطرفية</a>
+    <h4>للجميع</h4>
+    <a href="#ar-subsite">النطاق الفرعي كموقع</a>
+    <a href="#ar-ownerbackups">النسخ الاحتياطية</a>
+    <a href="#ar-update">تحديث اللوحة</a>
+    <a href="#ar-model">كيف تُحفظ بياناتك بأمان</a>
+  </aside>
+
+  <article>
+    <h1 class="lede">دليل AdminServer</h1>
+    <p class="sub">شرح كامل وواضح لكل جزء من اللوحة — للمدير الذي يدير السيرفر، ولمالك الحساب الذي يدير موقعًا واحدًا عليه.</p>
+
+    <section class="doc-sec" id="ar-intro">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span>ما هي AdminServer</h2>
+      <p>AdminServer لوحة تحكّم استضافة لأنظمة AlmaLinux وRocky وRHEL (9 و10). تحوّل سيرفرًا واحدًا إلى مكان تعيش فيه عدّة مواقع جنبًا إلى جنب، كلٌّ معزول عن الآخر، وتمنحك صفحة في المتصفح لإدارة كل شيء — دون الحاجة إلى SSH للعمل اليومي.</p>
+      <h3>نوعان من المستخدمين</h3>
+      <ul class="clean">
+        <li><b>المدير</b> — يدير السيرفر كاملًا: ينشئ الحسابات، يثبّت إصدارات PHP وNode.js، يرفع مستوى الحماية، يدير DNS والبريد، يأخذ النسخ الاحتياطية، ويراقب النظام.</li>
+        <li><b>مالك الحساب</b> — يدير حسابه فقط: مواقعه وملفاته وقواعد بياناته وصناديق بريده ونسخه الاحتياطية. لا يرى الحسابات الأخرى ولا داخل السيرفر.</li>
+      </ul>
+      <h3>كيف تُرتَّب الشاشة</h3>
+      <ul class="clean">
+        <li><b>الشريط العلوي</b> — تبديل اللغة، الوضع الفاتح/الداكن، الإشعارات، شارة صحّة السيرفر، واسم مضيف السيرفر.</li>
+        <li><b>القائمة الجانبية</b> — الأقسام المسموح لك بفتحها، مُجمّعة حسب الغرض. وعند فتح حساب تُدرِج مواقعه، وتحت كل موقع صفحاته ونطاقاته الفرعية.</li>
+        <li><b>مسار التنقّل</b> (أعلى الصفحة) — يبيّن أين أنت ويتيح الرجوع للأعلى.</li>
+      </ul>
+      <div class="note">كل عنوان رابط حقيقي. تحديث الصفحة أو مشاركة الرابط يعيدك إلى المكان نفسه بالضبط.</div>
+    </section>
+
+    <section class="doc-sec" id="ar-signin">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>تسجيل الدخول والشريط العلوي</h2>
+      <p>بعد التثبيت تطبع اللوحة كلمة مرور لمرة واحدة ورابطًا مثل <code>https://SERVER_IP:8443</code>. افتحه، سجّل الدخول، وغيّر كلمة المرور الأولية عند الطلب — فاللوحة ترفض أي شيء آخر حتى تفعل ذلك.</p>
+      <p>وإن نسيتها، شغّل على السيرفر: <code>sudo adminserver reset-password</code>.</p>
+      <h3>الشريط العلوي</h3>
+      <ul class="clean">
+        <li><b>اللغة</b> — بدّل اللوحة كاملة بين الإنجليزية والعربية في أي وقت.</li>
+        <li><b>الوضع الفاتح/الداكن</b> — زرّ القمر/الشمس؛ ويُحفظ اختيارك.</li>
+        <li><b>الإشعارات</b> — الجرس، مع عدّاد أحمر للعناصر غير المقروءة.</li>
+        <li><b>صحّة السيرفر</b> — شارة نسبة مئوية (للمدير فقط)؛ اضغطها لفتح مركز الحماية.</li>
+        <li><b>اسم المضيف</b> — السيرفر الذي تعمل عليه هذه اللوحة.</li>
+      </ul>
+    </section>
+
+    <section class="doc-sec" id="ar-home">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span>الرئيسية — لوحة السيرفر <span class="tag">مدير</span></h2>
+      <p>صفحة المدير الرئيسية تُظهر السيرفر بلمحة: نسبة صحّة عامة، واستخدام المعالج والذاكرة والقرص، وعدد الحسابات والمواقع المستضافة، وقائمة قصيرة بما يحتاج انتباهًا. أما مالك الحساب فرئيسيّته هي حسابه نفسه، بمواقعه واستهلاك قرصه.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-security">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>مركز الحماية <span class="tag">مدير</span></h2>
+      <p>قلب اللوحة. يُجري أكثر من 28 فحصًا على تصلّب السيرفر — الجدار الناري، SELinux، SSH، إعدادات النواة، عزل الخدمات، وغيرها. كل فحص سطر واحد:</p>
+      <ul class="clean">
+        <li>نقطة خضراء/حمراء تخبرك هل نجح.</li>
+        <li><b>شرح</b> بكلمات واضحة: ما هو ولماذا يهمّ.</li>
+        <li>زرّ <b>إصلاح</b> يطبّق الإعداد الصحيح بنقرة واحدة.</li>
+        <li><b>تراجع آمن</b> — إن سبّب إصلاحٌ مشكلةً يمكنك التراجع عنه.</li>
+      </ul>
+      <div class="note">استهدف ١٠٠٪. السيرفر المثبّت حديثًا يبلغها بفتح هذه الصفحة وإصلاح كل بند — والنتيجة سيرفر مُحصَّن بنفس القدر في كل مرة.</div>
+    </section>
+
+    <section class="doc-sec" id="ar-sshkeys">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="5"/><path d="M11.5 11.5 21 21M17 17l2-2M14 14l2-2"/></svg></span>مفاتيح SSH <span class="tag">مدير</span></h2>
+      <p>أدِر المفاتيح العامة المسموح لها بالدخول إلى السيرفر عبر SSH كـ root. أضف مفتاحك هنا لتتمكّن من إيقاف دخول SSH بكلمة المرور (كما يوصي مركز الحماية)، فيبقى الدخول بالمفتاح فقط.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-accounts">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4a3.5 3.5 0 0 1 0 7M21 20c0-3-1.8-5.6-4.5-6"/></svg></span>الحسابات <span class="tag">مدير</span></h2>
+      <p><b>الحساب</b> عميل أو مشروع واحد. كل حساب مستخدم لينكس حقيقي له مجلده الخاص، وشريحة عمليات خاصة، وحصّة قرص خاصة — معزول تمامًا عن الآخرين.</p>
+      <h3>قائمة الحسابات</h3>
+      <p>كل حساب مع عدد مواقعه واستهلاك قرصه. افتح حسابًا لترى مواقعه، أو تعيد ضبط كلمة مروره، أو تحذفه.</p>
+      <h3>إنشاء حساب</h3>
+      <p>اختر اسمًا (أحرف إنجليزية صغيرة وأرقام). تنشئ اللوحة مستخدم لينكس ومجلده وشريحته وحصّته، وتعطيك كلمة مرور لمرة واحدة لتسلّمها.</p>
+      <h3>الموارد والحدود</h3>
+      <p>لكل حساب صفحة <b>الموارد</b> تُظهر استخدام المعالج والذاكرة والقرص لحظيًا. ويستطيع المدير تحديد سقف للحساب هنا (حصّة المعالج، الذاكرة، عدد العمليات، حصّة القرص) كي لا يستنزف حسابٌ واحد البقية. يرى الملّاك استهلاكهم لكن لا تظهر لهم بطاقة الحدود.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-php">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>إصدارات PHP <span class="tag">مدير</span></h2>
+      <p>ثبّت عدّة إصدارات PHP جنبًا إلى جنب (مثل 8.1 و8.2 و8.3). تُثبَّت مرة واحدة مركزيًا للقراءة فقط؛ ثم يختار كل موقع الإصدار الذي يعمل عليه. تُظهر هذه الصفحة كل إصدار، وكم موقعًا يستخدمه، وأيّها انتهى دعمه، وتتيح التثبيت أو الإزالة وإدارة الإضافات.</p>
+      <div class="note">لا يمكن إزالة إصدار يستخدمه أي موقع أو نطاق فرعي حتى يتوقف استخدامه تمامًا.</div>
+    </section>
+
+    <section class="doc-sec" id="ar-nodever">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span>إصدارات Node.js <span class="tag">مدير</span></h2>
+      <p>تمامًا كـ PHP لكن لـ Node.js. ثبّت الإصدارات الرئيسية التي تريد إتاحتها (مثل 20 و22 و24)؛ تنزّل اللوحة الإصدار الرسمي وتتحقّق من بصمته وتخزّنه للقراءة فقط. ثم يختار منها الموقعُ أو النطاقُ الفرعي الذي يعمل كتطبيق Node.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-dns">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>DNS <span class="tag">مدير</span></h2>
+      <p>إن أردت أن يجيب السيرفر عن DNS لنطاقاته، اضبط خوادم الأسماء هنا (ns1… وns2…). وبعد ضبطها يحصل كل موقع على تبويب <b>DNS</b> تُدار منه منطقته وسجلّاته على هذا السيرفر مباشرة.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-mail">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>البريد <span class="tag">مدير</span></h2>
+      <p>فعّل استضافة البريد للسيرفر (Postfix وDovecot، مع مكافحة الانتحال). يضبط هذا اسم مضيف البريد مرة واحدة؛ وبعدها يستطيع كل موقع تفعيل البريد وإنشاء صناديقه من تبويب البريد الخاص به.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-monitor">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>المراقبة <span class="tag">مدير</span></h2>
+      <p>كل جلسة نشطة: من سجّل الدخول، ومن أي عنوان وبلد. ويمكنك إخراج جلسة مشبوهة. وكل ذلك محفوظ محليًا — لا تراه أي خدمة خارجية أبدًا.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-audit">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>سجل العمليات <span class="tag">مدير</span></h2>
+      <p>سجلٌّ لكل دخول ولكل أمر نفّذته اللوحة — مع المستخدم والعنوان والوقت. استخدمه لترى بالضبط ماذا حدث ومتى.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-network">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></span>الشبكة <span class="tag">مدير</span></h2>
+      <p>حركة شبكة السيرفر عبر الزمن، لترى الارتفاعات وأكثر المضيفين انشغالًا.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-settings">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7 19.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3 15H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.7 9L4.6 9A2 2 0 1 1 7.4 6.1l.1.1A1.6 1.6 0 0 0 10 5.3V5a2 2 0 1 1 4 0v.1A1.6 1.6 0 0 0 17 6.7l.1-.1A2 2 0 1 1 19.9 9.4l-.1.1A1.6 1.6 0 0 0 20.9 12H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span>الإعدادات <span class="tag">مدير</span></h2>
+      <p>تفضيلات على مستوى اللوحة: مثلًا ربط كل جلسة بالعنوان الذي أُنشئت منه (فتصبح الكوكي المسروقة بلا فائدة في مكان آخر)، وخيارات أمان أخرى. ولمالكي الحسابات إعداداتهم الأصغر (كلمة المرور، الإشعارات).</p>
+    </section>
+
+    <section class="doc-sec" id="ar-billing">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></span>الفوترة والخطط <span class="tag">مدير</span></h2>
+      <p>الجانب التجاري عند استخدامه: الخطط التي تقدّمها، ومن عليه ماذا (الطلبات والفواتير)، وطلبات الانضمام. ويرى المالك خطّته وفواتيره فقط تحت <b>الفوترة</b>.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-site">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg></span>المواقع وتبويباتها</h2>
+      <p><b>الموقع</b> نطاق واحد (مثل <code>example.com</code>). أضفه من داخل حساب؛ وتعيش ملفاته في مجلد الحساب. وعند فتح موقع يتوسّع في القائمة الجانبية إلى مجموعة تبويبات. والتبويبات المعروضة تعتمد على نوع الموقع: موقع PHP يُظهر تبويب PHP، وموقع Node يُظهر تبويب Node.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-overview">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h14V9.5"/></svg></span>نظرة عامة</h2>
+      <p>الموقع بلمحة: حالة شهادة SSL، وهل يشير DNS إلى هذا السيرفر، ونوع الموقع، وعدد قواعد البيانات. ومن هنا أيضًا:</p>
+      <ul class="clean">
+        <li>اختر <b>نوع الموقع</b> — PHP أو Node.js. اختيار PHP يوقف أي تطبيق Node؛ واختيار Node يسلّم كل الطلبات إلى عملية Node الخاصة بك.</li>
+        <li>اختر <b>خادم الويب</b> لموقع PHP — nginx وحده، أو Apache خلفه (من أجل <code>.htaccess</code>).</li>
+        <li>راجع وأصلح أي <b>مشاكل</b> (شهادة ناقصة، DNS لا يشير هنا) بنقرة واحدة.</li>
+        <li>أزِل الموقع (تبقى ملفاته في مجلد الحساب).</li>
+      </ul>
+    </section>
+
+    <section class="doc-sec" id="ar-files">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>مدير الملفات</h2>
+      <p>مدير ملفات كامل لمجلد الموقع: تصفّح، ورفع بالسحب والإفلات، وإنشاء وإعادة تسمية ونقل وحذف، وفكّ الأرشيفات. ومحرّر أكواد مدمج (Monaco) يفتح الملفات النصية للتعديل. وكل شيء يعمل بهوية مستخدم الحساب نفسه، فتبقى الصلاحيات صحيحة.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-subs">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/></svg></span>النطاقات الفرعية</h2>
+      <p>أسماء مضيفين تحت الموقع (مثل <code>blog.example.com</code>)، كلٌّ يُخدَم من مجلد داخل الموقع وله شهادته الخاصة. أنشئ واحدًا بالاسم فقط؛ فيحصل على مجلد تلقائيًا. ويُظهر كل صف نوعه وفيه زرّ <b>نظرة عامة</b> يفتح النطاق الفرعي كموقع مصغّر مستقل (انظر أدناه)، وزرّ <b>إزالة</b>.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-sitephp">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>تكوين PHP</h2>
+      <p>لموقع PHP. ثلاثة أجزاء:</p>
+      <ul class="clean">
+        <li><b>الإصدار</b> — اختر إصدار PHP المثبّت الذي يعمل عليه الموقع؛ ويُطبَّق التغيير فورًا.</li>
+        <li><b>الإضافات</b> — فعّل الإضافات التي يحتاجها الموقع، من بين ما ثبّته المدير.</li>
+        <li><b>الخيارات</b> — عدّل إعدادات <code>php.ini</code> الآمنة (حجم الرفع، الذاكرة، حدود الوقت…).</li>
+      </ul>
+    </section>
+
+    <section class="doc-sec" id="ar-sitenode">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/></svg></span>Node.js</h2>
+      <p>لموقع Node. فعّل التطبيق، واختر إصدار Node، وأمر التشغيل (مثل <code>npm start</code>)، ومجلد التطبيق، وأي متغيّرات بيئة. يعمل التطبيق كخدمة دائمة داخل شريحة الحساب؛ ويمرّر nginx كل طلب إليه عبر مقبس خاص (بما في ذلك WebSocket). وتُظهر الصفحة هل هو يعمل، وسجلّه الأخير، وأزرار التشغيل/الإيقاف/إعادة التشغيل وتشغيل <code>npm install</code>.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-db">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>قواعد البيانات</h2>
+      <p>أنشئ قاعدة بيانات MariaDB للموقع، كلٌّ بمستخدمها الخاص. تُظهر اللوحة بيانات الاتصال وكلمة مرور لمرة واحدة، وتعيد ضبط كلمة مرور، وتفتح phpMyAdmin لقاعدة واحدة، أو تحذف قاعدة. احذف قاعدة البيانات قبل إزالة موقعها كي لا تُفقَد بياناتها دون قصد.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-sitedns">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg></span>DNS</h2>
+      <p>إن كان السيرفر يدير DNS، يدير هذا التبويب منطقة الموقع وسجلّاته (A وAAAA وCNAME وMX وTXT…). وإن كان DNS مُدارًا في مكان آخر، تُظهر اللوحة بالضبط أي سجلّات تُضاف هناك.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-sitemail">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>البريد</h2>
+      <p>فعّل البريد للنطاق، وأنشئ واحذف الصناديق، وغيّر كلمات مرورها، واقرأ سجلّات DNS الدقيقة (SPF وDKIM وMX…) التي يحتاجها البريد — بنقرة لنشرها إن كانت المنطقة على هذا السيرفر. وتُعرض بيانات الاتصال لأي برنامج بريد، والبريد عبر الويب إن كان مُعدًّا.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-traffic">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></span>الزيارات</h2>
+      <p>زوّار الموقع وطلباته عبر الزمن (ساعة، يوم، أسبوع…)، مع تفصيل حسب المضيف. ولكل حساب عرض زيارات أوسع أيضًا.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-terminal">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg></span>الطرفية</h2>
+      <p>طرفية ويب تعمل <b>بهوية مستخدم الحساب نفسه</b>، داخل جلسة معزولة — مفيدة لـ composer أو git أو أوامر سريعة دون دخول SSH كامل. ولا يمكنها الوصول إلى حساب آخر أو إلى النظام أبدًا.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-subsite">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/></svg></span>النطاق الفرعي كموقع مستقل</h2>
+      <p>كل نطاق فرعي موقع مصغّر قائم بذاته. يظهر في القائمة الجانبية تحت موقعه الأب، وبفتحه (أو زرّ <b>نظرة عامة</b>) تحصل له على صفحاته الخاصة:</p>
+      <ul class="clean">
+        <li><b>نظرة عامة</b> — نوعه وSSL وDNS ومجلده ومشاكله وإزالته.</li>
+        <li><b>الملفات</b> — ينقلك إلى مجلده الخاص في مدير الملفات.</li>
+        <li><b>PHP</b> أو <b>Node</b> — إصدار PHP الخاص به، أو تطبيق Node الخاص به، مستقل عن الموقع الأب.</li>
+      </ul>
+      <p>ويبقى كل ذلك داخل مستخدم الحساب الأب وشريحته، فلا يكسر عزل الحساب أبدًا.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-ownerbackups">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.5 19h9a4 4 0 0 0 .4-7.98 5.5 5.5 0 0 0-10.64-1.17A3.75 3.75 0 0 0 7.5 19z"/><path d="M12 21v-7M9.5 16.5 12 14l2.5 2.5"/></svg></span>النسخ الاحتياطية <span class="tag owner">للجميع</span></h2>
+      <p>خذ نسخة احتياطية من حساب، وأرسلها خارج السيرفر كي لا يكون السيرفر المفقود نسخة مفقودة. أضف وجهة — <b>MEGA</b> أو أي تخزين <b>متوافق مع S3</b> (Backblaze B2، Wasabi، Cloudflare R2) — اختبرها، ثم أنشئ النسخ واسترجِع منها بنقرة.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-update">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11A8 8 0 1 0 6 6"/><path d="M4 4v4h4"/></svg></span>تحديث اللوحة <span class="tag">مدير</span></h2>
+      <p>تتحقّق اللوحة من قناة رسمية بحثًا عن إصدارات جديدة. وعند توفّر واحد يظهر شريط يعرض التحديث. ويُتحقَّق من التحديث مرّتين — بصمته وتوقيعه التعمية — ويُرفض إن فشل أيّهما، فلا يُثبَّت إلا بناءٌ أصيل من الناشر الحقيقي. ثم تُثبّته اللوحة وتعيد تشغيل نفسها؛ وتبقى مواقعك تعمل.</p>
+    </section>
+
+    <section class="doc-sec" id="ar-model">
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span>كيف تُحفظ بياناتك بأمان</h2>
+      <ul class="clean">
+        <li><b>فصل الصلاحيات</b> — مساعد مميّز صغير يقوم بالعمل الفعلي؛ وواجهة الويب بلا صلاحيات خاصة بها، تطلب العمليات بالاسم فقط.</li>
+        <li><b>عزل لكل حساب</b> — مستخدم لينكس وشريحة لكل حساب، بحدود المعالج والذاكرة والعمليات والقرص، يفرضها SELinux. والمهاجم داخل موقع لا يصل إلى آخر.</li>
+        <li><b>تحديثات موثّقة</b> — كل تحديث يُفحص ببصمته وتوقيعه قبل تثبيته.</li>
+        <li><b>سجلّات محلية</b> — تُسجَّل عمليات الدخول والأوامر على السيرفر نفسه؛ لا تتدخّل أي خدمة خارجية.</li>
+      </ul>
+      <div class="note">سؤال أو مشكلة؟ افتح مركز الحماية أولًا — فهو يشرح ويُصلح معظم الأمور وحده.</div>
+    </section>
+  </article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="index.html" style="font-size:16px;color:var(--text)"><span class="dot" style="width:24px;height:24px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span>AdminServer</a>
+    <div class="spacer"></div>
+    <span id="footLic">AlmaLinux · Rocky · RHEL 9 &amp; 10</span>
+  </div>
+</footer>
+
+<script>
+  // English (default) <-> Arabic: swap whole-language blocks and direction.
+  let ar = false;
+  document.getElementById("lang").addEventListener("click", () => {
+    ar = !ar;
+    document.getElementById("en").hidden = ar;
+    document.getElementById("ar").hidden = !ar;
+    document.documentElement.lang = ar ? "ar" : "en";
+    document.documentElement.dir = ar ? "rtl" : "ltr";
+    document.getElementById("lang").textContent = ar ? "EN" : "ع";
+    document.getElementById("homeBtn").textContent = ar ? "الرئيسية →" : "← Home";
+    window.scrollTo(0, 0);
+  });
+</script>
+</body>
+</html>
