@@ -115,6 +115,25 @@
   .stat .s .n{font-size:26px;font-weight:800;color:var(--accent)}
   .stat .s .l{font-size:13px;color:var(--muted);margin-top:3px}
 
+  /* showcase */
+  .showcase{display:grid;gap:60px}
+  .shot-row{display:grid;grid-template-columns:1fr 1.22fr;gap:42px;align-items:center}
+  .shot-row.rev .shot-text{order:2}
+  .shot-text .k{display:inline-flex;align-items:center;font-size:12px;font-weight:700;color:var(--accent);
+    background:var(--accent-soft);border:1px solid var(--border-strong);padding:4px 12px;border-radius:999px;margin-bottom:13px}
+  .shot-text h3{font-size:clamp(20px,2.6vw,27px);margin:0 0 9px;letter-spacing:-.01em;line-height:1.25}
+  .shot-text p{color:var(--muted);margin:0;font-size:15.5px}
+  .frame{background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden;
+    box-shadow:0 30px 70px rgba(0,0,0,.45);transition:transform .18s,border-color .18s}
+  .frame:hover{transform:translateY(-4px);border-color:var(--border-strong)}
+  .frame .bar{display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid var(--border);background:#0a1310}
+  .frame .bar i{width:11px;height:11px;border-radius:50%;background:#2c4138}
+  .frame .bar i:first-child{background:#e06c5b}.frame .bar i:nth-child(2){background:#e0b34b}.frame .bar i:nth-child(3){background:var(--accent)}
+  .frame .bar .addr{margin-inline-start:auto;font-family:var(--mono);font-size:11.5px;color:var(--muted);
+    background:var(--surface);padding:3px 12px;border-radius:7px;border:1px solid var(--border);max-width:60%;overflow:hidden;white-space:nowrap}
+  .frame img{display:block;width:100%;height:auto}
+  @media(max-width:820px){.shot-row{grid-template-columns:1fr;gap:18px}.shot-row.rev .shot-text{order:0}}
+
   /* footer */
   footer{border-top:1px solid var(--border);padding:34px 0;color:var(--muted);font-size:14px}
   .foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
@@ -131,6 +150,7 @@
     <nav class="links">
       <a href="#features" data-i="navFeatures">Features</a>
       <a href="#security" data-i="navSecurity">Security</a>
+      <a href="#shots" data-i="navShots">Screenshots</a>
       <a href="#install" data-i="navInstall">Install</a>
       <a href="docs.html" data-i="navDocs">Docs</a>
     </nav>
@@ -235,6 +255,55 @@
     </div>
   </section>
 
+  <section id="shots" class="wrap">
+    <div class="shead">
+      <h2 data-i="shH2">A look inside</h2>
+      <p data-i="shLead">The whole panel is one clear, fast page — in English or Arabic, light or dark.</p>
+    </div>
+    <div class="showcase">
+      <div class="shot-row">
+        <div class="shot-text">
+          <span class="k" data-i="sh1k">Dashboard</span>
+          <h3 data-i="sh1h">Your server at a glance</h3>
+          <p data-i="sh1p">Health, CPU, memory and disk — and exactly what needs a decision from you, each with a one-click fix.</p>
+        </div>
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="addr">AdminServer · Home</span></div><img src="shots/overview.webp" alt="AdminServer overview dashboard" loading="lazy" width="2000" height="1137"></div>
+      </div>
+      <div class="shot-row rev">
+        <div class="shot-text">
+          <span class="k" data-i="sh2k">Security Centre</span>
+          <h3 data-i="sh2h">Security you can see and fix</h3>
+          <p data-i="sh2p">More than 28 hardening checks, each explained in plain words and fixed in one click — with a safe rollback.</p>
+        </div>
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="addr">AdminServer · Security</span></div><img src="shots/security.webp" alt="AdminServer Security Centre" loading="lazy" width="2000" height="1137"></div>
+      </div>
+      <div class="shot-row">
+        <div class="shot-text">
+          <span class="k" data-i="sh3k">Accounts</span>
+          <h3 data-i="sh3h">Every account, fully isolated</h3>
+          <p data-i="sh3p">Its own Linux user, files, PHP version and limits. One account can never reach another's data.</p>
+        </div>
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="addr">AdminServer · Accounts</span></div><img src="shots/accounts.webp" alt="AdminServer accounts list" loading="lazy" width="2000" height="1137"></div>
+      </div>
+      <div class="shot-row rev">
+        <div class="shot-text">
+          <span class="k" data-i="sh4k">One site</span>
+          <h3 data-i="sh4h">Manage a site from one place</h3>
+          <p data-i="sh4p">Files, PHP or Node, databases, sub-domains, DNS and mail — each site a menu of its own pages.</p>
+        </div>
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="addr">AdminServer · Site</span></div><img src="shots/account.webp" alt="AdminServer site management" loading="lazy" width="2000" height="1137"></div>
+      </div>
+      <div class="shot-row">
+        <div class="shot-text">
+          <span class="k" data-i="sh5k">Node.js</span>
+          <h3 data-i="sh5h">Run Node.js apps, live</h3>
+          <p data-i="sh5p">Pick the version and start command, watch the log, and start, stop or restart — all inside the account's isolation.</p>
+        </div>
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="addr">AdminServer · Node.js</span></div><img src="shots/node.webp" alt="AdminServer Node.js app" loading="lazy" width="2000" height="1137"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="install" class="wrap">
     <div class="shead">
       <h2 data-i="iH2">Install with one command</h2>
@@ -260,7 +329,7 @@
 <script>
   // English (default) <-> Arabic, swapping text and direction. No build step.
   const AR = {
-    navFeatures:"المزايا", navSecurity:"الأمان", navInstall:"التثبيت", navInstallBtn:"تثبيت", navDocs:"التعليم",
+    navFeatures:"المزايا", navSecurity:"الأمان", navInstall:"التثبيت", navInstallBtn:"تثبيت", navDocs:"التعليم", navShots:"صور",
     heroPill:"AlmaLinux · Rocky · RHEL 9 و 10",
     heroH1:'لوحة استضافة <span class="g">خفيفة وآمنة</span><br>وجديرة بثقتك',
     heroLead:"إصدارات PHP وNode.js لكل حساب، عزل حقيقي على مستوى النظام، نسخ احتياطية خارج السيرفر، ومركز حماية يفحص ويشرح ويُصلح — مع دعم كامل للعربية.",
@@ -278,6 +347,12 @@
     s3b:"مركز حماية:", s3p:"يفحص تصلّب النظام، يشرح كل بند، ويُصلحه بنقرة — مع تراجع آمن.",
     s4b:"مراقبة:", s4p:"كل دخول وكل أمر نُفِّذ، مع العنوان والبلد، محفوظة محليًا دون أي خدمة خارجية.",
     st1:"بند في مركز الحماية", st2:"صلاحيات للواجهة", st3:"ملف تنفيذي", st4:"دعم العربية",
+    shH2:"من داخل اللوحة", shLead:"اللوحة كلها صفحة واحدة واضحة وسريعة — بالإنجليزية أو العربية، فاتحة أو داكنة.",
+    sh1k:"لوحة البداية", sh1h:"سيرفرك بلمحة", sh1p:"الصحة والمعالج والذاكرة والقرص — وبالضبط ما يحتاج قرارًا منك، كلٌّ بإصلاح بنقرة.",
+    sh2k:"مركز الحماية", sh2h:"أمان تراه وتُصلحه", sh2p:"أكثر من ٢٨ فحص تحصين، كلٌّ مشروح بكلمات واضحة ويُصلَح بنقرة — مع تراجع آمن.",
+    sh3k:"الحسابات", sh3h:"كل حساب معزول تمامًا", sh3p:"مستخدم لينكس وملفات وإصدار PHP وحدود خاصة به. ولا يصل حساب إلى بيانات آخر.",
+    sh4k:"موقع واحد", sh4h:"أدِر الموقع من مكان واحد", sh4p:"ملفات، PHP أو Node، قواعد بيانات، نطاقات فرعية، DNS وبريد — كل موقع قائمة صفحاته الخاصة.",
+    sh5k:"Node.js", sh5h:"شغّل تطبيقات Node.js حيًّا", sh5p:"اختر الإصدار وأمر التشغيل، وراقب السجل، وشغّل أو أوقِف أو أعد التشغيل — كله داخل عزل الحساب.",
     iH2:"تنصيب بأمر واحد", iLead:"شغّل الأمر على سيرفر AlmaLinux / Rocky / RHEL نظيف. ينزّل أحدث إصدار من القناة الرسمية، يتحقّق من بصمته، ويطبع رابط اللوحة وكلمة مرور لمرة واحدة.",
     iHints:'# منفذ آخر: <code>sudo PANEL_PORT=9443 bash</code> &nbsp;·&nbsp; نسيت كلمة المرور: <code>sudo adminserver reset-password</code> &nbsp;·&nbsp; تحديث لاحق: بنقرة من داخل اللوحة.',
     copy:"نسخ", footLic:"AlmaLinux · Rocky · RHEL 9 و 10",
