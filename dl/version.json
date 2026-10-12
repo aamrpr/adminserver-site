@@ -1,1 +1,7 @@
-{"version":"0.52.2","sha256":"0bf9ddb87c986ee9df0815361f11726b9b89466d5626e6e943f5d37dc625c838","url":"https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz","sig_url":"https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig","notes":"negative test"}
+{
+  "version": "0.52.1",
+  "sha256": "0bf9ddb87c986ee9df0815361f11726b9b89466d5626e6e943f5d37dc625c838",
+  "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
+  "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
+  "notes": "AdminServer 0.52.1"
+}
