@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdminServer — لوحة استضافة خفيفة وآمنة</title>
+<meta name="description" content="لوحة تحكم استضافة لسيرفرات AlmaLinux / Rocky / RHEL: PHP و Node.js لكل حساب، عزل قوي، نسخ احتياطية خارج السيرفر، ومركز حماية — عربية أولًا.">
+<meta name="color-scheme" content="dark light">
+<style>
+  :root{
+    --bg:#0b1512; --surface:#13231f; --surface-2:#182c27; --text:#e6f0ec; --muted:#93a8a1;
+    --border:#22372f; --border-strong:#32493f; --accent:#3fcf9a; --accent-2:#5fd9b0;
+    --accent-soft:#143b31; --radius:16px; --max:1080px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:"Segoe UI",system-ui,-apple-system,"Noto Sans Arabic",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:
+      radial-gradient(1200px 600px at 100% -10%,rgba(63,207,154,.14),transparent 60%),
+      radial-gradient(900px 500px at 0% 10%,rgba(63,207,154,.08),transparent 55%),
+      var(--bg);
+    color:var(--text);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:11px;
+    font-weight:700;font-size:15px;border:1px solid var(--border-strong);background:var(--surface);
+    color:var(--text);cursor:pointer;transition:transform .12s,border-color .12s,background .12s}
+  .btn:hover{transform:translateY(-1px);border-color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#06231b;border-color:var(--accent)}
+  .btn.primary:hover{background:var(--accent-2)}
+  .btn svg{width:18px;height:18px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
+    background:rgba(11,21,18,.72);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;gap:14px;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px}
+  .brand .dot{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--accent),#2f9e78);color:#06231b}
+  .brand .dot svg{width:17px;height:17px}
+  .nav .spacer{flex:1}
+  .nav .links{display:flex;gap:6px}
+  .nav .links a{padding:8px 12px;border-radius:9px;color:var(--muted);font-size:14px;font-weight:600}
+  .nav .links a:hover{color:var(--text);background:var(--surface)}
+  .lang{font-size:13px}
+  @media(max-width:720px){.nav .links{display:none}}
+
+  /* hero */
+  .hero{text-align:center;padding:84px 0 56px}
+  .pill{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--accent);
+    background:var(--accent-soft);border:1px solid var(--border-strong);padding:6px 13px;border-radius:999px}
+  .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.12;margin:18px 0 10px;letter-spacing:-.02em}
+  .hero h1 .g{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:clamp(16px,2.4vw,20px);color:var(--muted);max-width:640px;margin:0 auto 26px}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .term{margin:34px auto 0;max-width:560px;text-align:start;background:#0a1310;border:1px solid var(--border);
+    border-radius:13px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .term .bar{display:flex;gap:7px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--border);background:var(--surface)}
+  .term .bar i{width:11px;height:11px;border-radius:50%;background:#2c4138;display:inline-block}
+  .term .bar i:first-child{background:#e06c5b}.term .bar i:nth-child(2){background:#e0b34b}.term .bar i:nth-child(3){background:var(--accent)}
+  .term .bar span{margin-inline-start:auto;color:var(--muted);font-size:12px;font-family:var(--mono)}
+  .term pre{margin:0;padding:18px;font-family:var(--mono);font-size:13.5px;line-height:1.9;color:#cfe6dd;direction:ltr;text-align:left;overflow-x:auto}
+  .term .c{color:var(--muted)} .term .p{color:var(--accent)} .term .o{color:#8fd9bf}
+
+  /* sections */
+  section{padding:56px 0}
+  .shead{text-align:center;max-width:640px;margin:0 auto 40px}
+  .shead h2{font-size:clamp(26px,4vw,38px);margin:0 0 10px;letter-spacing:-.02em}
+  .shead p{color:var(--muted);margin:0;font-size:17px}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;
+    transition:transform .14s,border-color .14s}
+  .card:hover{transform:translateY(-3px);border-color:var(--border-strong)}
+  .card .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;
+    background:var(--accent-soft);color:var(--accent)}
+  .card .ico svg{width:23px;height:23px}
+  .card h3{margin:0 0 7px;font-size:18px}
+  .card p{margin:0;color:var(--muted);font-size:14.5px}
+
+  /* security band */
+  .band{background:linear-gradient(180deg,var(--surface),#10201b);border-block:1px solid var(--border)}
+  .band .row{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  @media(max-width:820px){.band .row{grid-template-columns:1fr;gap:26px}}
+  .band h2{font-size:clamp(24px,3.6vw,34px);margin:0 0 14px}
+  .band ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .band li{display:flex;gap:11px;align-items:flex-start;color:var(--muted);font-size:15px}
+  .band li svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:3px}
+  .band li b{color:var(--text);font-weight:700}
+  .stat{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .stat .s{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:18px;text-align:center}
+  .stat .s .n{font-size:26px;font-weight:800;color:var(--accent)}
+  .stat .s .l{font-size:13px;color:var(--muted);margin-top:3px}
+
+  /* footer */
+  footer{border-top:1px solid var(--border);padding:34px 0;color:var(--muted);font-size:14px}
+  .foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .foot .spacer{flex:1}
+  .foot a{color:var(--muted)} .foot a:hover{color:var(--accent)}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>AdminServer</div>
+    <div class="spacer"></div>
+    <nav class="links">
+      <a href="#features" data-i="navFeatures">المزايا</a>
+      <a href="#security" data-i="navSecurity">الأمان</a>
+      <a href="#install" data-i="navInstall">التنصيب</a>
+    </nav>
+    <button class="btn lang" id="lang" type="button">EN</button>
+    <a class="btn primary" href="https://github.com/aamrpr/adminserver" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+      GitHub</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <span class="pill"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> <span data-i="heroPill">AlmaLinux · Rocky · RHEL 9 و 10</span></span>
+    <h1 data-i="heroH1">لوحة استضافة <span class="g">خفيفة وآمنة</span><br>تديرها بثقة</h1>
+    <p class="lead" data-i="heroLead">PHP و Node.js بإصدارات لكل حساب، عزل حقيقي على مستوى النظام، نسخ احتياطية خارج السيرفر، ومركز حماية يفحص ويشرح ويُصلح — عربية أولًا.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/aamrpr/adminserver" target="_blank" rel="noopener" data-i="ctaStart">ابدأ على GitHub</a>
+      <a class="btn" href="#install" data-i="ctaInstall">طريقة التنصيب</a>
+    </div>
+    <div class="term" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i><span>root@server</span></div>
+      <pre><span class="c"># تنصيب بأمر واحد</span>
+<span class="p">$</span> tar -xzf adminserver-*.tar.gz
+<span class="p">$</span> cd adminserver-* &amp;&amp; sudo ./install.sh
+<span class="o">==&gt; AdminServer is installed</span>
+<span class="o">   https://panel.example.com:8443</span></pre>
+    </div>
+  </section>
+
+  <section id="features" class="wrap">
+    <div class="shead">
+      <h2 data-i="fH2">كل ما تحتاجه الاستضافة</h2>
+      <p data-i="fLead">مبنية بمبدأ واحد في كل قسم: افحص ← اشرح ← أصلح.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div><h3 data-i="f1h">PHP و Node.js لكل حساب</h3><p data-i="f1p">إصدارات مثبّتة مركزيًا يختار كل حساب منها، ويعمل تطبيقه بهويته داخل حدوده — لا تداخل بين الحسابات.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 data-i="f2h">أمان من التصميم</h3><p data-i="f2p">فصل صلاحيات، مستخدم لينكس وslice لكل حساب، SELinux، وفلترة صادر — المهاجم لا يخرج من موقعه.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 19h9a4 4 0 0 0 .4-7.98 5.5 5.5 0 0 0-10.64-1.17A3.75 3.75 0 0 0 7.5 19z"/><path d="M12 21v-7"/><path d="M9.5 16.5 12 14l2.5 2.5"/></svg></div><h3 data-i="f3h">نسخ خارج السيرفر</h3><p data-i="f3p">ارفع نسخك إلى MEGA أو تخزين متوافق مع S3 (Backblaze · Wasabi · R2) بنقرة — فالسيرفر المفقود ليس نسخة مفقودة.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></div><h3 data-i="f4h">DNS و بريد و SSL</h3><p data-i="f4p">PowerDNS للنطاقات، بريد عبر Postfix و Dovecot بمكافحة انتحال، وشهادات Let's Encrypt تتجدّد وحدها.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3z"/><path d="M7 9l3 3-3 3"/><path d="M13 15h4"/></svg></div><h3 data-i="f5h">مدير ملفات و طرفية</h3><p data-i="f5p">مدير ملفات برفع وسحب، محرّر أكواد (Monaco)، وطرفية ويب تعمل بهوية الحساب داخل جلسة معزولة.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3 data-i="f6h">خفيفة وسريعة</h3><p data-i="f6p">ملف تنفيذي واحد بلغة Go، بلا أدوات بناء ثقيلة، يعمل على AlmaLinux / Rocky / RHEL — عربية وإنجليزية.</p></div>
+    </div>
+  </section>
+
+  <section id="security" class="band">
+    <div class="wrap row">
+      <div>
+        <h2 data-i="secH2">الأمان ليس إضافة — إنه الأساس</h2>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s1b">فصل الصلاحيات:</b> <span data-i="s1p">وكيل مميّز معزول، وواجهة ويب بلا صلاحيات تطلب العمليات بالاسم فقط.</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s2b">عزل لكل حساب:</b> <span data-i="s2p">مستخدم لينكس وslice بحدود المعالج والذاكرة والعمليات، وحصّة قرص، وSELinux.</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s3b">مركز حماية:</b> <span data-i="s3p">يفحص تصلّب النظام، يشرح كل بند، ويُصلحه بنقرة — مع تراجع آمن.</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s4b">مراقبة:</b> <span data-i="s4p">كل دخول وكل أمر نُفِّذ، مع العنوان والبلد، محفوظة محليًا دون أي خدمة خارجية.</span></span></li>
+        </ul>
+      </div>
+      <div class="stat">
+        <div class="s"><div class="n">28+</div><div class="l" data-i="st1">بند في مركز الحماية</div></div>
+        <div class="s"><div class="n">0</div><div class="l" data-i="st2">صلاحيات للواجهة</div></div>
+        <div class="s"><div class="n">1</div><div class="l" data-i="st3">ملف تنفيذي</div></div>
+        <div class="s"><div class="n">AR</div><div class="l" data-i="st4">عربية أولًا</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="install" class="wrap">
+    <div class="shead">
+      <h2 data-i="iH2">تنصيب بأمر واحد</h2>
+      <p data-i="iLead">انسخ الحزمة إلى سيرفرك، فكّها، وشغّل المنصِّب. يطبع رابط اللوحة وكلمة مرور لمرة واحدة.</p>
+    </div>
+    <div class="term" style="max-width:640px">
+      <div class="bar"><i></i><i></i><i></i><span>install</span></div>
+      <pre><span class="p">$</span> tar -xzf adminserver-VERSION.tar.gz
+<span class="p">$</span> cd adminserver-VERSION
+<span class="p">$</span> sudo ./install.sh
+<span class="c"># منفذ آخر (أول مرة): sudo PANEL_PORT=9443 ./install.sh</span>
+<span class="c"># نسيت كلمة المرور:   sudo adminserver reset-password</span></pre>
+    </div>
+    <div class="cta" style="margin-top:28px">
+      <a class="btn primary" href="https://github.com/aamrpr/adminserver" target="_blank" rel="noopener" data-i="iBtn">احصل عليها من GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="font-size:16px"><span class="dot" style="width:24px;height:24px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span>AdminServer</div>
+    <div class="spacer"></div>
+    <span data-i="footLic">رخصة مفتوحة · AlmaLinux / Rocky / RHEL</span>
+    <a href="https://github.com/aamrpr/adminserver" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</footer>
+
+<script>
+  // Arabic (default) <-> English, swapping text and direction. No build step.
+  const EN = {
+    navFeatures:"Features", navSecurity:"Security", navInstall:"Install",
+    heroPill:"AlmaLinux · Rocky · RHEL 9 & 10",
+    heroH1:'A hosting panel that is <span class="g">light & secure</span><br>and yours to trust',
+    heroLead:"Per-account PHP and Node.js versions, real OS-level isolation, off-server backups, and a Security Centre that checks, explains and fixes — built Arabic-first, fluent in English.",
+    ctaStart:"Start on GitHub", ctaInstall:"How to install",
+    fH2:"Everything hosting needs", fLead:"Every section follows one idea: check → explain → fix.",
+    f1h:"Per-account PHP & Node.js", f1p:"Runtimes installed centrally; each account picks its version and runs as itself, inside its limits — no crossover between accounts.",
+    f2h:"Secure by design", f2p:"Privilege separation, a Linux user and slice per account, SELinux, and egress filtering — an attacker never leaves its own site.",
+    f3h:"Off-server backups", f3p:"Upload backups to MEGA or S3-compatible storage (Backblaze · Wasabi · R2) in a click — a lost server is not a lost backup.",
+    f4h:"DNS, mail & SSL", f4p:"PowerDNS for domains, mail over Postfix and Dovecot with anti-spoofing, and Let's Encrypt certificates that renew themselves.",
+    f5h:"File manager & terminal", f5p:"Drag-and-drop file manager, a Monaco code editor, and a web terminal that runs as the account inside an isolated session.",
+    f6h:"Light and fast", f6p:"A single Go binary, no heavy build tooling, running on AlmaLinux / Rocky / RHEL — in Arabic and English.",
+    secH2:"Security is not an add-on — it is the foundation",
+    s1b:"Privilege separation:", s1p:"an isolated privileged agent, and a permission-less web face that only asks for operations by name.",
+    s2b:"Per-account isolation:", s2p:"a Linux user and slice with CPU, memory and process limits, a disk quota, and SELinux.",
+    s3b:"Security Centre:", s3p:"audits system hardening, explains each item, and fixes it in one click — with a safe rollback.",
+    s4b:"Monitoring:", s4p:"every sign-in and every command run, with address and country, kept locally — no external service.",
+    st1:"Security Centre checks", st2:"privileges for the web face", st3:"single binary", st4:"Arabic-first",
+    iH2:"Install with one command", iLead:"Copy the package to your server, extract it, run the installer. It prints the panel URL and a one-time password.",
+    iBtn:"Get it on GitHub", footLic:"Open source · AlmaLinux / Rocky / RHEL",
+  };
+  const AR = {}; // the page ships in Arabic; EN is the override map
+  document.querySelectorAll("[data-i]").forEach(el => AR[el.dataset.i] = el.innerHTML);
+  let en = false;
+  document.getElementById("lang").addEventListener("click", () => {
+    en = !en;
+    const map = en ? EN : AR;
+    document.querySelectorAll("[data-i]").forEach(el => { if (map[el.dataset.i] != null) el.innerHTML = map[el.dataset.i]; });
+    document.documentElement.lang = en ? "en" : "ar";
+    document.documentElement.dir = en ? "ltr" : "rtl";
+    document.getElementById("lang").textContent = en ? "ع" : "EN";
+  });
+</script>
+</body>
+</html>
