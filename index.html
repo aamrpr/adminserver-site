@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AdminServer — لوحة استضافة خفيفة وآمنة</title>
-<meta name="description" content="لوحة تحكم استضافة لسيرفرات AlmaLinux / Rocky / RHEL: PHP و Node.js لكل حساب، عزل قوي، نسخ احتياطية خارج السيرفر، ومركز حماية — عربية أولًا.">
+<title>AdminServer — a light & secure hosting panel</title>
+<meta name="description" content="A hosting control panel for AlmaLinux / Rocky / RHEL: per-account PHP & Node.js, strong isolation, off-server backups, and a Security Centre. Arabic supported.">
 <meta name="color-scheme" content="dark light">
 <style>
   :root{
@@ -129,22 +129,22 @@
     <div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>AdminServer</div>
     <div class="spacer"></div>
     <nav class="links">
-      <a href="#features" data-i="navFeatures">المزايا</a>
-      <a href="#security" data-i="navSecurity">الأمان</a>
-      <a href="#install" data-i="navInstall">التنصيب</a>
+      <a href="#features" data-i="navFeatures">Features</a>
+      <a href="#security" data-i="navSecurity">Security</a>
+      <a href="#install" data-i="navInstall">Install</a>
     </nav>
-    <button class="btn lang" id="lang" type="button">EN</button>
-    <a class="btn primary" href="#install" data-i="navInstallBtn">تثبيت</a>
+    <button class="btn lang" id="lang" type="button">ع</button>
+    <a class="btn primary" href="#install" data-i="navInstallBtn">Install</a>
   </div>
 </header>
 
 <main>
   <section class="hero wrap">
-    <span class="pill"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> <span data-i="heroPill">AlmaLinux · Rocky · RHEL 9 و 10</span></span>
-    <h1 data-i="heroH1">لوحة استضافة <span class="g">خفيفة وآمنة</span><br>تديرها بثقة</h1>
-    <p class="lead" data-i="heroLead">PHP و Node.js بإصدارات لكل حساب، عزل حقيقي على مستوى النظام، نسخ احتياطية خارج السيرفر، ومركز حماية يفحص ويشرح ويُصلح — عربية أولًا.</p>
+    <span class="pill"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> <span data-i="heroPill">AlmaLinux · Rocky · RHEL 9 &amp; 10</span></span>
+    <h1 data-i="heroH1">A hosting panel that is <span class="g">light &amp; secure</span><br>and yours to trust</h1>
+    <p class="lead" data-i="heroLead">Per-account PHP and Node.js versions, real OS-level isolation, off-server backups, and a Security Centre that checks, explains and fixes — with full Arabic support.</p>
     <div class="cta">
-      <a class="btn primary" href="#install" data-i="ctaInstall">طريقة التنصيب</a>
+      <a class="btn primary" href="#install" data-i="ctaInstall">How to install</a>
     </div>
 
     <div class="server-art" aria-hidden="true">
@@ -192,7 +192,7 @@
 
     <div class="term" aria-hidden="true">
       <div class="bar"><i></i><i></i><i></i><span>root@server</span></div>
-      <pre><span class="c"># تنصيب مباشر — أمر واحد</span>
+      <pre><span class="c"># one-command install</span>
 <span class="p">$</span> curl -fsSL https://aamrpr.github.io/adminserver-site/install.sh | sudo bash
 <span class="o">==&gt; AdminServer is installed</span>
 <span class="o">   https://SERVER_IP:8443</span></pre>
@@ -201,50 +201,50 @@
 
   <section id="features" class="wrap">
     <div class="shead">
-      <h2 data-i="fH2">كل ما تحتاجه الاستضافة</h2>
-      <p data-i="fLead">مبنية بمبدأ واحد في كل قسم: افحص ← اشرح ← أصلح.</p>
+      <h2 data-i="fH2">Everything hosting needs</h2>
+      <p data-i="fLead">Every section follows one idea: check → explain → fix.</p>
     </div>
     <div class="grid">
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div><h3 data-i="f1h">PHP و Node.js لكل حساب</h3><p data-i="f1p">إصدارات مثبّتة مركزيًا يختار كل حساب منها، ويعمل تطبيقه بهويته داخل حدوده — لا تداخل بين الحسابات.</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 data-i="f2h">أمان من التصميم</h3><p data-i="f2p">فصل صلاحيات، مستخدم لينكس وslice لكل حساب، SELinux، وفلترة صادر — المهاجم لا يخرج من موقعه.</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 19h9a4 4 0 0 0 .4-7.98 5.5 5.5 0 0 0-10.64-1.17A3.75 3.75 0 0 0 7.5 19z"/><path d="M12 21v-7"/><path d="M9.5 16.5 12 14l2.5 2.5"/></svg></div><h3 data-i="f3h">نسخ خارج السيرفر</h3><p data-i="f3p">ارفع نسخك إلى MEGA أو تخزين متوافق مع S3 (Backblaze · Wasabi · R2) بنقرة — فالسيرفر المفقود ليس نسخة مفقودة.</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></div><h3 data-i="f4h">DNS و بريد و SSL</h3><p data-i="f4p">PowerDNS للنطاقات، بريد عبر Postfix و Dovecot بمكافحة انتحال، وشهادات Let's Encrypt تتجدّد وحدها.</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3z"/><path d="M7 9l3 3-3 3"/><path d="M13 15h4"/></svg></div><h3 data-i="f5h">مدير ملفات و طرفية</h3><p data-i="f5p">مدير ملفات برفع وسحب، محرّر أكواد (Monaco)، وطرفية ويب تعمل بهوية الحساب داخل جلسة معزولة.</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3 data-i="f6h">خفيفة وسريعة</h3><p data-i="f6p">ملف تنفيذي واحد بلغة Go، بلا أدوات بناء ثقيلة، يعمل على AlmaLinux / Rocky / RHEL — عربية وإنجليزية.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div><h3 data-i="f1h">Per-account PHP &amp; Node.js</h3><p data-i="f1p">Runtimes installed centrally; each account picks its version and runs as itself, inside its limits — no crossover between accounts.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 data-i="f2h">Secure by design</h3><p data-i="f2p">Privilege separation, a Linux user and slice per account, SELinux, and egress filtering — an attacker never leaves its own site.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 19h9a4 4 0 0 0 .4-7.98 5.5 5.5 0 0 0-10.64-1.17A3.75 3.75 0 0 0 7.5 19z"/><path d="M12 21v-7"/><path d="M9.5 16.5 12 14l2.5 2.5"/></svg></div><h3 data-i="f3h">Off-server backups</h3><p data-i="f3p">Upload backups to MEGA or S3-compatible storage (Backblaze · Wasabi · R2) in a click — a lost server is not a lost backup.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></div><h3 data-i="f4h">DNS, mail &amp; SSL</h3><p data-i="f4p">PowerDNS for domains, mail over Postfix and Dovecot with anti-spoofing, and Let's Encrypt certificates that renew themselves.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3z"/><path d="M7 9l3 3-3 3"/><path d="M13 15h4"/></svg></div><h3 data-i="f5h">File manager &amp; terminal</h3><p data-i="f5p">Drag-and-drop file manager, a Monaco code editor, and a web terminal that runs as the account inside an isolated session.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3 data-i="f6h">Light and fast</h3><p data-i="f6p">A single Go binary, no heavy build tooling, running on AlmaLinux / Rocky / RHEL — with Arabic support.</p></div>
     </div>
   </section>
 
   <section id="security" class="band">
     <div class="wrap row">
       <div>
-        <h2 data-i="secH2">الأمان ليس إضافة — إنه الأساس</h2>
+        <h2 data-i="secH2">Security is not an add-on — it is the foundation</h2>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s1b">فصل الصلاحيات:</b> <span data-i="s1p">وكيل مميّز معزول، وواجهة ويب بلا صلاحيات تطلب العمليات بالاسم فقط.</span></span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s2b">عزل لكل حساب:</b> <span data-i="s2p">مستخدم لينكس وslice بحدود المعالج والذاكرة والعمليات، وحصّة قرص، وSELinux.</span></span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s3b">مركز حماية:</b> <span data-i="s3p">يفحص تصلّب النظام، يشرح كل بند، ويُصلحه بنقرة — مع تراجع آمن.</span></span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s4b">مراقبة:</b> <span data-i="s4p">كل دخول وكل أمر نُفِّذ، مع العنوان والبلد، محفوظة محليًا دون أي خدمة خارجية.</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s1b">Privilege separation:</b> <span data-i="s1p">an isolated privileged agent, and a permission-less web face that only asks for operations by name.</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s2b">Per-account isolation:</b> <span data-i="s2p">a Linux user and slice with CPU, memory and process limits, a disk quota, and SELinux.</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s3b">Security Centre:</b> <span data-i="s3p">audits system hardening, explains each item, and fixes it in one click — with a safe rollback.</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><b data-i="s4b">Monitoring:</b> <span data-i="s4p">every sign-in and every command run, with address and country, kept locally — no external service.</span></span></li>
         </ul>
       </div>
       <div class="stat">
-        <div class="s"><div class="n">28+</div><div class="l" data-i="st1">بند في مركز الحماية</div></div>
-        <div class="s"><div class="n">0</div><div class="l" data-i="st2">صلاحيات للواجهة</div></div>
-        <div class="s"><div class="n">1</div><div class="l" data-i="st3">ملف تنفيذي</div></div>
-        <div class="s"><div class="n">AR</div><div class="l" data-i="st4">عربية أولًا</div></div>
+        <div class="s"><div class="n">28+</div><div class="l" data-i="st1">Security Centre checks</div></div>
+        <div class="s"><div class="n">0</div><div class="l" data-i="st2">privileges for the web face</div></div>
+        <div class="s"><div class="n">1</div><div class="l" data-i="st3">single binary</div></div>
+        <div class="s"><div class="n">AR</div><div class="l" data-i="st4">Arabic supported</div></div>
       </div>
     </div>
   </section>
 
   <section id="install" class="wrap">
     <div class="shead">
-      <h2 data-i="iH2">تنصيب بأمر واحد</h2>
-      <p data-i="iLead">شغّل الأمر على سيرفر AlmaLinux / Rocky / RHEL نظيف. ينزّل أحدث إصدار من القناة الرسمية، يتحقّق من بصمته، ويطبع رابط اللوحة وكلمة مرور لمرة واحدة.</p>
+      <h2 data-i="iH2">Install with one command</h2>
+      <p data-i="iLead">Run it on a clean AlmaLinux / Rocky / RHEL server. It downloads the latest release from the official channel, verifies its checksum, and prints the panel URL and a one-time password.</p>
     </div>
     <div class="term" style="max-width:720px">
       <div class="bar"><i></i><i></i><i></i><span>install</span>
-        <button class="copy" type="button" id="copy" data-i="copy">نسخ</button></div>
+        <button class="copy" type="button" id="copy" data-i="copy">Copy</button></div>
       <pre id="cmd"><span class="p">$</span> curl -fsSL https://aamrpr.github.io/adminserver-site/install.sh | sudo bash</pre>
     </div>
-    <p class="muted-hint" data-i="iHints"># منفذ آخر: <code>sudo PANEL_PORT=9443 bash</code> &nbsp;·&nbsp; نسيت كلمة المرور: <code>sudo adminserver reset-password</code> &nbsp;·&nbsp; تحديث لاحق: بنقرة من داخل اللوحة.</p>
+    <p class="muted-hint" data-i="iHints"># Another port: <code>sudo PANEL_PORT=9443 bash</code> &nbsp;·&nbsp; Forgot the password: <code>sudo adminserver reset-password</code> &nbsp;·&nbsp; Later updates: one click inside the panel.</p>
   </section>
 </main>
 
@@ -252,53 +252,53 @@
   <div class="wrap foot">
     <div class="brand" style="font-size:16px"><span class="dot" style="width:24px;height:24px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span>AdminServer</div>
     <div class="spacer"></div>
-    <span data-i="footLic">AlmaLinux · Rocky · RHEL 9 و 10</span>
+    <span data-i="footLic">AlmaLinux · Rocky · RHEL 9 & 10</span>
   </div>
 </footer>
 
 <script>
-  // Arabic (default) <-> English, swapping text and direction. No build step.
-  const EN = {
-    navFeatures:"Features", navSecurity:"Security", navInstall:"Install",
-    heroPill:"AlmaLinux · Rocky · RHEL 9 & 10",
-    heroH1:'A hosting panel that is <span class="g">light & secure</span><br>and yours to trust',
-    heroLead:"Per-account PHP and Node.js versions, real OS-level isolation, off-server backups, and a Security Centre that checks, explains and fixes — built Arabic-first, fluent in English.",
-    ctaStart:"Start on GitHub", ctaInstall:"How to install",
-    fH2:"Everything hosting needs", fLead:"Every section follows one idea: check → explain → fix.",
-    f1h:"Per-account PHP & Node.js", f1p:"Runtimes installed centrally; each account picks its version and runs as itself, inside its limits — no crossover between accounts.",
-    f2h:"Secure by design", f2p:"Privilege separation, a Linux user and slice per account, SELinux, and egress filtering — an attacker never leaves its own site.",
-    f3h:"Off-server backups", f3p:"Upload backups to MEGA or S3-compatible storage (Backblaze · Wasabi · R2) in a click — a lost server is not a lost backup.",
-    f4h:"DNS, mail & SSL", f4p:"PowerDNS for domains, mail over Postfix and Dovecot with anti-spoofing, and Let's Encrypt certificates that renew themselves.",
-    f5h:"File manager & terminal", f5p:"Drag-and-drop file manager, a Monaco code editor, and a web terminal that runs as the account inside an isolated session.",
-    f6h:"Light and fast", f6p:"A single Go binary, no heavy build tooling, running on AlmaLinux / Rocky / RHEL — in Arabic and English.",
-    secH2:"Security is not an add-on — it is the foundation",
-    s1b:"Privilege separation:", s1p:"an isolated privileged agent, and a permission-less web face that only asks for operations by name.",
-    s2b:"Per-account isolation:", s2p:"a Linux user and slice with CPU, memory and process limits, a disk quota, and SELinux.",
-    s3b:"Security Centre:", s3p:"audits system hardening, explains each item, and fixes it in one click — with a safe rollback.",
-    s4b:"Monitoring:", s4p:"every sign-in and every command run, with address and country, kept locally — no external service.",
-    st1:"Security Centre checks", st2:"privileges for the web face", st3:"single binary", st4:"Arabic-first",
-    iH2:"Install with one command", iLead:"Run it on a clean AlmaLinux / Rocky / RHEL server. It downloads the latest release from the official channel, verifies its checksum, and prints the panel URL and a one-time password.",
-    iHints:'# Another port: <code>sudo PANEL_PORT=9443 bash</code> &nbsp;·&nbsp; Forgot the password: <code>sudo adminserver reset-password</code> &nbsp;·&nbsp; Later updates: one click inside the panel.',
-    copy:"Copy", navInstallBtn:"Install", footLic:"AlmaLinux · Rocky · RHEL 9 & 10",
+  // English (default) <-> Arabic, swapping text and direction. No build step.
+  const AR = {
+    navFeatures:"المزايا", navSecurity:"الأمان", navInstall:"التثبيت", navInstallBtn:"تثبيت",
+    heroPill:"AlmaLinux · Rocky · RHEL 9 و 10",
+    heroH1:'لوحة استضافة <span class="g">خفيفة وآمنة</span><br>وجديرة بثقتك',
+    heroLead:"إصدارات PHP وNode.js لكل حساب، عزل حقيقي على مستوى النظام، نسخ احتياطية خارج السيرفر، ومركز حماية يفحص ويشرح ويُصلح — مع دعم كامل للعربية.",
+    ctaInstall:"كيفية التثبيت",
+    fH2:"كل ما تحتاجه الاستضافة", fLead:"مبنية بمبدأ واحد في كل قسم: افحص ← اشرح ← أصلح.",
+    f1h:"PHP و Node.js لكل حساب", f1p:"إصدارات مثبّتة مركزيًا يختار كل حساب منها، ويعمل تطبيقه بهويته داخل حدوده — لا تداخل بين الحسابات.",
+    f2h:"أمان من التصميم", f2p:"فصل صلاحيات، مستخدم لينكس وslice لكل حساب، SELinux، وفلترة صادر — المهاجم لا يخرج من موقعه.",
+    f3h:"نسخ خارج السيرفر", f3p:"ارفع نسخك إلى MEGA أو تخزين متوافق مع S3 (Backblaze · Wasabi · R2) بنقرة — فالسيرفر المفقود ليس نسخة مفقودة.",
+    f4h:"DNS و بريد و SSL", f4p:"PowerDNS للنطاقات، بريد عبر Postfix و Dovecot بمكافحة انتحال، وشهادات Let's Encrypt تتجدّد وحدها.",
+    f5h:"مدير ملفات و طرفية", f5p:"مدير ملفات برفع وسحب، محرّر أكواد (Monaco)، وطرفية ويب تعمل بهوية الحساب داخل جلسة معزولة.",
+    f6h:"خفيفة وسريعة", f6p:"ملف تنفيذي واحد بلغة Go، بلا أدوات بناء ثقيلة، يعمل على AlmaLinux / Rocky / RHEL — مع دعم العربية.",
+    secH2:"الأمان ليس إضافة — إنه الأساس",
+    s1b:"فصل الصلاحيات:", s1p:"وكيل مميّز معزول، وواجهة ويب بلا صلاحيات تطلب العمليات بالاسم فقط.",
+    s2b:"عزل لكل حساب:", s2p:"مستخدم لينكس وslice بحدود المعالج والذاكرة والعمليات، وحصّة قرص، وSELinux.",
+    s3b:"مركز حماية:", s3p:"يفحص تصلّب النظام، يشرح كل بند، ويُصلحه بنقرة — مع تراجع آمن.",
+    s4b:"مراقبة:", s4p:"كل دخول وكل أمر نُفِّذ، مع العنوان والبلد، محفوظة محليًا دون أي خدمة خارجية.",
+    st1:"بند في مركز الحماية", st2:"صلاحيات للواجهة", st3:"ملف تنفيذي", st4:"دعم العربية",
+    iH2:"تنصيب بأمر واحد", iLead:"شغّل الأمر على سيرفر AlmaLinux / Rocky / RHEL نظيف. ينزّل أحدث إصدار من القناة الرسمية، يتحقّق من بصمته، ويطبع رابط اللوحة وكلمة مرور لمرة واحدة.",
+    iHints:'# منفذ آخر: <code>sudo PANEL_PORT=9443 bash</code> &nbsp;·&nbsp; نسيت كلمة المرور: <code>sudo adminserver reset-password</code> &nbsp;·&nbsp; تحديث لاحق: بنقرة من داخل اللوحة.',
+    copy:"نسخ", footLic:"AlmaLinux · Rocky · RHEL 9 و 10",
   };
-  const AR = {}; // the page ships in Arabic; EN is the override map
-  document.querySelectorAll("[data-i]").forEach(el => AR[el.dataset.i] = el.innerHTML);
-  let en = false;
+  const EN = {}; // the page ships in English; AR is the override map
+  document.querySelectorAll("[data-i]").forEach(el => EN[el.dataset.i] = el.innerHTML);
+  let ar = false;
   document.getElementById("lang").addEventListener("click", () => {
-    en = !en;
-    const map = en ? EN : AR;
+    ar = !ar;
+    const map = ar ? AR : EN;
     document.querySelectorAll("[data-i]").forEach(el => { if (map[el.dataset.i] != null) el.innerHTML = map[el.dataset.i]; });
-    document.documentElement.lang = en ? "en" : "ar";
-    document.documentElement.dir = en ? "ltr" : "rtl";
-    document.getElementById("lang").textContent = en ? "ع" : "EN";
+    document.documentElement.lang = ar ? "ar" : "en";
+    document.documentElement.dir = ar ? "rtl" : "ltr";
+    document.getElementById("lang").textContent = ar ? "EN" : "ع";
   });
   // Copy the install command.
   const cp = document.getElementById("copy");
   if (cp) cp.addEventListener("click", async () => {
     const cmd = document.getElementById("cmd").textContent.replace(/^\s*\$\s*/, "").trim();
     try { await navigator.clipboard.writeText(cmd); } catch (e) {}
-    cp.classList.add("ok"); cp.textContent = en ? "Copied" : "تم النسخ";
-    setTimeout(() => { cp.classList.remove("ok"); cp.textContent = AR.copy || "نسخ"; if (en) cp.textContent = "Copy"; }, 1600);
+    cp.classList.add("ok"); cp.textContent = ar ? "تم النسخ" : "Copied";
+    setTimeout(() => { cp.classList.remove("ok"); cp.textContent = ar ? "نسخ" : "Copy"; }, 1600);
   });
 </script>
 </body>
