@@ -1,7 +1,7 @@
 {
-  "version": "0.52.0",
-  "sha256": "a8a7db36ee9d337ca1812e64c8caccf344d6a935f8f24e8ee605812dc581a290",
+  "version": "0.52.1",
+  "sha256": "0bf9ddb87c986ee9df0815361f11726b9b89466d5626e6e943f5d37dc625c838",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "تحديث تلقائي موقّع، وربط التطبيق بقناة الإصدارات"
+  "notes": "إصدار اختبار للتحديث الذاتي"
 }
