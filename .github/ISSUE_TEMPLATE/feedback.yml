@@ -1,0 +1,42 @@
+name: Feedback / ملاحظة وتقييم
+description: Tried AdminServer? Tell us what you think. · جرّبت AdminServer؟ شاركنا رأيك.
+title: "[Feedback] "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing **AdminServer**! Fill in what you can — every field is optional except the rating.
+        شكرًا لتجربتك **AdminServer**! املأ ما تستطيع — كل الحقول اختيارية عدا التقييم.
+  - type: dropdown
+    id: rating
+    attributes:
+      label: Overall rating · التقييم العام
+      options:
+        - "⭐⭐⭐⭐⭐ — Excellent · ممتاز"
+        - "⭐⭐⭐⭐ — Good · جيد"
+        - "⭐⭐⭐ — Okay · مقبول"
+        - "⭐⭐ — Needs work · يحتاج تحسينًا"
+        - "⭐ — Poor · ضعيف"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Server OS · نظام السيرفر
+      placeholder: "AlmaLinux 10 · Rocky 9 · RHEL 9 …"
+  - type: textarea
+    id: liked
+    attributes:
+      label: What worked well · ما الذي أعجبك
+      placeholder: "The parts you liked, the ones that felt easy. · الأجزاء التي أعجبتك وكانت سهلة."
+  - type: textarea
+    id: problems
+    attributes:
+      label: Problems or bugs · مشاكل أو أخطاء
+      placeholder: "What broke, what was confusing, any error messages. · ما تعطّل أو كان مربكًا، وأي رسائل خطأ."
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Suggestions · اقتراحات
+      placeholder: "Features you'd want, anything missing. · ميزات تتمناها أو شيء ناقص."

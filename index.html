@@ -153,6 +153,7 @@
       <a href="#shots" data-i="navShots">Screenshots</a>
       <a href="#install" data-i="navInstall">Install</a>
       <a href="docs.html" data-i="navDocs">Docs</a>
+      <a href="https://github.com/aamrpr/adminserver-site/issues/new?template=feedback.yml" target="_blank" rel="noopener" data-i="navFeedback">Feedback</a>
     </nav>
     <button class="btn lang" id="lang" type="button">ع</button>
     <a class="btn primary" href="#install" data-i="navInstallBtn">Install</a>
@@ -316,6 +317,14 @@
     </div>
     <p class="muted-hint" data-i="iHints"># Another port: <code>sudo PANEL_PORT=9443 bash</code> &nbsp;·&nbsp; Forgot the password: <code>sudo adminserver reset-password</code> &nbsp;·&nbsp; Later updates: one click inside the panel.</p>
   </section>
+
+  <section id="feedback" class="wrap" style="text-align:center;padding-top:20px">
+    <div class="shead" style="margin-bottom:22px">
+      <h2 data-i="fbH2">Tried it? Tell us what you think</h2>
+      <p data-i="fbLead">It is an early release. Your rating and notes shape what comes next.</p>
+    </div>
+    <a class="btn primary" href="https://github.com/aamrpr/adminserver-site/issues/new?template=feedback.yml" target="_blank" rel="noopener" data-i="fbBtn">Give feedback</a>
+  </section>
 </main>
 
 <footer>
@@ -329,7 +338,7 @@
 <script>
   // English (default) <-> Arabic, swapping text and direction. No build step.
   const AR = {
-    navFeatures:"المزايا", navSecurity:"الأمان", navInstall:"التثبيت", navInstallBtn:"تثبيت", navDocs:"التعليم", navShots:"صور",
+    navFeatures:"المزايا", navSecurity:"الأمان", navInstall:"التثبيت", navInstallBtn:"تثبيت", navDocs:"التعليم", navShots:"صور", navFeedback:"تقييم",
     heroPill:"AlmaLinux · Rocky · RHEL 9 و 10",
     heroH1:'لوحة استضافة <span class="g">خفيفة وآمنة</span><br>وجديرة بثقتك',
     heroLead:"إصدارات PHP وNode.js لكل حساب، عزل حقيقي على مستوى النظام، نسخ احتياطية خارج السيرفر، ومركز حماية يفحص ويشرح ويُصلح — مع دعم كامل للعربية.",
@@ -353,6 +362,7 @@
     sh3k:"الحسابات", sh3h:"كل حساب معزول تمامًا", sh3p:"مستخدم لينكس وملفات وإصدار PHP وحدود خاصة به. ولا يصل حساب إلى بيانات آخر.",
     sh4k:"موقع واحد", sh4h:"أدِر الموقع من مكان واحد", sh4p:"ملفات، PHP أو Node، قواعد بيانات، نطاقات فرعية، DNS وبريد — كل موقع قائمة صفحاته الخاصة.",
     sh5k:"Node.js", sh5h:"شغّل تطبيقات Node.js حيًّا", sh5p:"اختر الإصدار وأمر التشغيل، وراقب السجل، وشغّل أو أوقِف أو أعد التشغيل — كله داخل عزل الحساب.",
+    fbH2:"جرّبتها؟ شاركنا رأيك", fbLead:"هي نسخة مبكرة. تقييمك وملاحظاتك تحدّدان ما يأتي لاحقًا.", fbBtn:"أرسل تقييمك",
     iH2:"تنصيب بأمر واحد", iLead:"شغّل الأمر على سيرفر AlmaLinux / Rocky / RHEL نظيف. ينزّل أحدث إصدار من القناة الرسمية، يتحقّق من بصمته، ويطبع رابط اللوحة وكلمة مرور لمرة واحدة.",
     iHints:'# منفذ آخر: <code>sudo PANEL_PORT=9443 bash</code> &nbsp;·&nbsp; نسيت كلمة المرور: <code>sudo adminserver reset-password</code> &nbsp;·&nbsp; تحديث لاحق: بنقرة من داخل اللوحة.',
     copy:"نسخ", footLic:"AlmaLinux · Rocky · RHEL 9 و 10",
