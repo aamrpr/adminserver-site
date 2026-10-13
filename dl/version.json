@@ -1,7 +1,7 @@
 {
-  "version": "0.53.1",
-  "sha256": "272a07fae2c95ff4fa39ccfa08f4844acafcc7faffcf1dafa0a668686b10a33b",
+  "version": "0.54.0",
+  "sha256": "22662fe549e7da59f28b8bedf09635c8cdfba7029b7b1e0feabac6415437fffe",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "AdminServer 0.53.1 — sub-domains as independent sites (own PHP/Node), AdminServer rebrand, English default"
+  "notes": "AdminServer 0.54.0 — wildcard sub-domains (*.domain) with per-tenant apps, and wildcard SSL (auto DNS-01 / manual / upload)"
 }
