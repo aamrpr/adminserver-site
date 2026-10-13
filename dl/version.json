@@ -1,7 +1,7 @@
 {
-  "version": "0.54.0",
-  "sha256": "22662fe549e7da59f28b8bedf09635c8cdfba7029b7b1e0feabac6415437fffe",
+  "version": "0.54.3",
+  "sha256": "d5443753bbe02a8d8102c6d0ffd85dee4e759e070ae1e2a82cc57903227c9e26",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "AdminServer 0.54.0 — wildcard sub-domains (*.domain) with per-tenant apps, and wildcard SSL (auto DNS-01 / manual / upload)"
+  "notes": "AdminServer 0.54.3 — wildcard sub-domains (PHP/Node) with wildcard SSL (auto/manual/upload), and a Security Centre check that stops accounts from seeing the whole machine's resources"
 }
