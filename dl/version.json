@@ -1,7 +1,7 @@
 {
-  "version": "0.54.3",
-  "sha256": "d5443753bbe02a8d8102c6d0ffd85dee4e759e070ae1e2a82cc57903227c9e26",
+  "version": "0.56.0",
+  "sha256": "9acd82924133d610d62efa093789433c797b490d3ff1ee2bc6721a8336792904",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "AdminServer 0.54.3 — wildcard sub-domains (PHP/Node) with wildcard SSL (auto/manual/upload), and a Security Centre check that stops accounts from seeing the whole machine's resources"
+  "notes": "Application catalog with one-click WordPress and a Node.js starter; a Wildcard tab to route all unregistered sub-domains to one PHP folder or Node app with automatic or manual SSL; per-account resource limits so each customer sees only their own CPU and memory."
 }
