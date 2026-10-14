@@ -1,7 +1,7 @@
 {
-  "version": "0.62.0",
-  "sha256": "79df0d12ead0ad4b8ac2f24fff9bb66afbd4ff39fa68be88340a4828a6da63de",
+  "version": "0.63.0",
+  "sha256": "a4d515fc06ac1c2eec24aa35a342830a9990456a6bac2692c5586e99469ce39b",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "شاشة انتظار متحركة أثناء التحديث وإعادة التشغيل، تُحدِّث نفسها فور عودة السيرفر دون تدخّل."
+  "notes": "إخفاء إطار التركيز عن الأزرار، زر طيّ القائمة الجانبية لإظهار الأيقونات فقط، ومنع تكرار التنبيه نفسه عند تذبذب الحالة."
 }
