@@ -1,7 +1,7 @@
 {
-  "version": "0.65.0",
-  "sha256": "c5c2963ad27619ab4ebc1c5f220277b3c07fb0cc767c135a00748224d7ef0fea",
+  "version": "0.66.0",
+  "sha256": "78ded3ca1c87ec815b82aefc620d632f685a6869f63348f23af892a9f3c32af0",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "إعادة تصميم نظرة عامة الموقع: ترويسة بارزة فوق شريط بطاقات حالة بأيقونات ملوّنة معبّرة."
+  "notes": "اختيار نوع الموقع كبطاقتين جنباً إلى جنب، وألوان البطاقات صحيحة في الوضعين الليلي والنهاري."
 }
