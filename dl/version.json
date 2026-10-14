@@ -1,7 +1,7 @@
 {
-  "version": "0.56.0",
-  "sha256": "9acd82924133d610d62efa093789433c797b490d3ff1ee2bc6721a8336792904",
+  "version": "0.57.0",
+  "sha256": "992f87a05a763af6bceb15f90973ade87e5d11e80910fadcfc25be2049ee65b9",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "Application catalog with one-click WordPress and a Node.js starter; a Wildcard tab to route all unregistered sub-domains to one PHP folder or Node app with automatic or manual SSL; per-account resource limits so each customer sees only their own CPU and memory."
+  "notes": "قاعدة البيانات والبريد: سقف ذاكرة للخدمات المشتركة وحدّ اتصالات لكل حساب، وتحصين استعلام الاستعادة. OpenCart، قسم التعليم، إدارة الكتالوج، تثبيت بخطوتين، دخول الأدمن كعميل، وإصلاح تضارب mail مع التوجيه الشامل."
 }
