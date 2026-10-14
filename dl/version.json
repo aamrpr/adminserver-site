@@ -1,7 +1,7 @@
 {
-  "version": "0.63.0",
-  "sha256": "a4d515fc06ac1c2eec24aa35a342830a9990456a6bac2692c5586e99469ce39b",
+  "version": "0.64.0",
+  "sha256": "8afa33c780ee5fe6b6c41ad1ab627cb0ec0ed0d205697d440cb97e20a736b3d2",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "إخفاء إطار التركيز عن الأزرار، زر طيّ القائمة الجانبية لإظهار الأيقونات فقط، ومنع تكرار التنبيه نفسه عند تذبذب الحالة."
+  "notes": "تحديث موثوق لإعادة التحميل، عدم وسم مواقع Node بنقص index، وتصميم أجمل لبطاقات النظرة العامة بأيقونات معبّرة."
 }
