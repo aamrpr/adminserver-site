@@ -1,6 +1,6 @@
 {
   "version": "0.57.0",
-  "sha256": "992f87a05a763af6bceb15f90973ade87e5d11e80910fadcfc25be2049ee65b9",
+  "sha256": "2b07903496cfc3760bef22f52323cc9499b4f85732fd7311dc9f10bea0c3f2ab",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
   "notes": "قاعدة البيانات والبريد: سقف ذاكرة للخدمات المشتركة وحدّ اتصالات لكل حساب، وتحصين استعلام الاستعادة. OpenCart، قسم التعليم، إدارة الكتالوج، تثبيت بخطوتين، دخول الأدمن كعميل، وإصلاح تضارب mail مع التوجيه الشامل."
