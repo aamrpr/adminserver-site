@@ -1,7 +1,7 @@
 {
-  "version": "0.60.0",
-  "sha256": "2a7646a28854c9b06832a90ba6cf6ca3592f79fccbe0b972425e369565faf622",
+  "version": "0.61.0",
+  "sha256": "85c90a94e512883d6b31f1a757af480af382911c6eb9fc0a8bea76460ac6bda1",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "عرض استهلاك المعالج أصبح من كامل الأنوية (الكامل 100%) بدل نواة واحدة."
+  "notes": "تحسين تجربة التحديث: لا تظهر رسالة انقطاع اتصال أثناء التحديث؛ تنتظر اللوحة عودة الخدمة وتُحدَّث تلقائياً."
 }
