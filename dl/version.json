@@ -1,7 +1,7 @@
 {
-  "version": "0.58.0",
-  "sha256": "a95f9b98a152eab9b260663d7fed6ef07c190fb134f25935df11deff3708ae82",
+  "version": "0.59.0",
+  "sha256": "7318352960076f05175d6f93e7a15841eda0d62f813cbab2fc8edd6867a454f9",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "اختبار التحديث التلقائي: رفع الإصدار للتحقق من مسار التحديث عبر القناة (موقّع بنفس المفتاح)."
+  "notes": "اختبار يدوي للتحديث من اللوحة: رفع 0.59.0 للقناة فقط دون تثبيت."
 }
