@@ -1,7 +1,7 @@
 {
-  "version": "0.64.0",
-  "sha256": "8afa33c780ee5fe6b6c41ad1ab627cb0ec0ed0d205697d440cb97e20a736b3d2",
+  "version": "0.65.0",
+  "sha256": "c5c2963ad27619ab4ebc1c5f220277b3c07fb0cc767c135a00748224d7ef0fea",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "تحديث موثوق لإعادة التحميل، عدم وسم مواقع Node بنقص index، وتصميم أجمل لبطاقات النظرة العامة بأيقونات معبّرة."
+  "notes": "إعادة تصميم نظرة عامة الموقع: ترويسة بارزة فوق شريط بطاقات حالة بأيقونات ملوّنة معبّرة."
 }
