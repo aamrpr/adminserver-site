@@ -1,7 +1,7 @@
 {
-  "version": "0.75.0",
-  "sha256": "7749880e0e0e31ab9a745db25914f07c13f9245e55137cd3db123ff17d1a387c",
+  "version": "0.76.0",
+  "sha256": "f43734a6aa52b4fc9169026f2e90f2349c5f601d22d23e89420b8208af9ff93f",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "إدارة سجلات DNS مباشرة عبر Cloudflare عند الربط (قراءة/إضافة/تعديل/حذف) + إصلاح سجل A ليطابق الخادم."
+  "notes": "سجلات البريد (MX/SPF/DKIM/DMARC) وتحدّي شهادة النطاق الشامل تمرّ عبر Cloudflare عند الربط — تكامل DNS كامل."
 }
