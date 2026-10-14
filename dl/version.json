@@ -1,7 +1,7 @@
 {
-  "version": "0.76.0",
-  "sha256": "f43734a6aa52b4fc9169026f2e90f2349c5f601d22d23e89420b8208af9ff93f",
+  "version": "0.77.0",
+  "sha256": "5598358cafbf4fc4251dacd763089110c4c7926351d282ec46d22c45b599aab5",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "سجلات البريد (MX/SPF/DKIM/DMARC) وتحدّي شهادة النطاق الشامل تمرّ عبر Cloudflare عند الربط — تكامل DNS كامل."
+  "notes": "0.77.0 — إصلاح أمني: سدّ حقن SQL في استعادة النسخ الاحتياطي لقاعدة البيانات (اسم جدول يحوي علامة اقتباس عكسية أو سطرًا جديدًا كان يُنفَّذ بصلاحية جذر MariaDB). الاستعادة الآن تُسقِط المخطط وتعيد إنشاءه باسمه المُتحقَّق فقط. Security fix: closed a SQL injection in database backup restore where a crafted table name (containing a backtick or newline) could run as MariaDB root; restore now drops and recreates the schema by its validated name only."
 }
