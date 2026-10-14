@@ -1,7 +1,7 @@
 {
-  "version": "0.70.0",
-  "sha256": "73c106a655bcc488604d1cb6ff75f9fac65fc69b5f3502dbe7d98629f2ed5d3b",
+  "version": "0.71.0",
+  "sha256": "04351d5be190699f5482045a554697cd486c2bf69a3998dd5ea18b09548b8fa5",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "SEO (3-5/5): تحقّق محركات البحث عبر DNS، وفحص ظهور للموقع عند الطلب (HTTPS، العنوان، الوصف، h1، التوافق مع الجوال، robots، sitemap، السرعة)."
+  "notes": "فحوص SEO إضافية (طول العنوان/الوصف، محتوى مختلط، alt، Open Graph، بيانات منظّمة) + في المراقبة: إيقاف الجلسة وحظر العنوان عن اللوحة حتى رفع الحظر."
 }
