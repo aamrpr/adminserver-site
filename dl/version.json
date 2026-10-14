@@ -1,7 +1,7 @@
 {
-  "version": "0.74.0",
-  "sha256": "9a1a7527c7ca438e86a8ccb5a0a149b92b35bf652ac5166e9a7fe91162d0f297",
+  "version": "0.75.0",
+  "sha256": "7749880e0e0e31ab9a745db25914f07c13f9245e55137cd3db123ff17d1a387c",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "ربط Cloudflare الاختياري لكل نطاق (البند 1): التحقق من الرمز، اكتشاف المنطقة، تخزين مشفّر — لمن DNS نطاقه على Cloudflare."
+  "notes": "إدارة سجلات DNS مباشرة عبر Cloudflare عند الربط (قراءة/إضافة/تعديل/حذف) + إصلاح سجل A ليطابق الخادم."
 }
