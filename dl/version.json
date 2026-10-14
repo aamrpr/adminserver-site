@@ -1,7 +1,7 @@
 {
-  "version": "0.72.0",
-  "sha256": "3e8ed3850ff828eabe2e12c3eb1968234151a8c510b9b5a9010742ee27c0f000",
+  "version": "0.73.0",
+  "sha256": "69cf329fb9ac9ae76aa5355906a22eaacb4421783b35ab15ec6c5db1df692291",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "إصلاح طرد جلسة SSH في المراقبة (كان لا يعمل)، وجعل الطرد يُنهي الجلسة المحددة بدقة بدل كل جلسات العنوان."
+  "notes": "الحظر في المراقبة يمنع العنوان على مستوى الجدار الناري (SSH وكل المنافذ) لا اللوحة فقط، مع إنهاء اتصالاته الحالية."
 }
