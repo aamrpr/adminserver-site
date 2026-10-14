@@ -1,7 +1,7 @@
 {
-  "version": "0.77.0",
-  "sha256": "5598358cafbf4fc4251dacd763089110c4c7926351d282ec46d22c45b599aab5",
+  "version": "0.81.0",
+  "sha256": "37be5e1fd03d808f4f62d2796565dbe09498af7f10fb9e93248753851930bf30",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.77.0 — إصلاح أمني: سدّ حقن SQL في استعادة النسخ الاحتياطي لقاعدة البيانات (اسم جدول يحوي علامة اقتباس عكسية أو سطرًا جديدًا كان يُنفَّذ بصلاحية جذر MariaDB). الاستعادة الآن تُسقِط المخطط وتعيد إنشاءه باسمه المُتحقَّق فقط. Security fix: closed a SQL injection in database backup restore where a crafted table name (containing a backtick or newline) could run as MariaDB root; restore now drops and recreates the schema by its validated name only."
+  "notes": "0.81.0 — إصلاحات Cloudflare: التحقق من سجلات البريد DKIM/DMARC، وإضافة سجل النطاق الفرعي وسجل wildcard تلقائيًا، وإصدار شهادة wildcard عبر DNS-01 مع انتظار انتشار السجل؛ وسدّ SSRF في وجهة النسخ الاحتياطي S3. Cloudflare fixes for mail DKIM/DMARC, automatic sub-domain and wildcard records, wildcard DNS-01 issuance with propagation wait, and an SSRF fix in the S3 backup destination."
 }
