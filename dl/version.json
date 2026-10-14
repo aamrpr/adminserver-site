@@ -1,7 +1,7 @@
 {
-  "version": "0.59.0",
-  "sha256": "7318352960076f05175d6f93e7a15841eda0d62f813cbab2fc8edd6867a454f9",
+  "version": "0.60.0",
+  "sha256": "2a7646a28854c9b06832a90ba6cf6ca3592f79fccbe0b972425e369565faf622",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "اختبار يدوي للتحديث من اللوحة: رفع 0.59.0 للقناة فقط دون تثبيت."
+  "notes": "عرض استهلاك المعالج أصبح من كامل الأنوية (الكامل 100%) بدل نواة واحدة."
 }
