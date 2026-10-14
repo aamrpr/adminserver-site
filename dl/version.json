@@ -1,7 +1,7 @@
 {
-  "version": "0.61.0",
-  "sha256": "85c90a94e512883d6b31f1a757af480af382911c6eb9fc0a8bea76460ac6bda1",
+  "version": "0.62.0",
+  "sha256": "79df0d12ead0ad4b8ac2f24fff9bb66afbd4ff39fa68be88340a4828a6da63de",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "تحسين تجربة التحديث: لا تظهر رسالة انقطاع اتصال أثناء التحديث؛ تنتظر اللوحة عودة الخدمة وتُحدَّث تلقائياً."
+  "notes": "شاشة انتظار متحركة أثناء التحديث وإعادة التشغيل، تُحدِّث نفسها فور عودة السيرفر دون تدخّل."
 }
