@@ -1,7 +1,7 @@
 {
-  "version": "0.68.0",
-  "sha256": "d687b1efcb4f25d5fc2db4e4e7efa49d7c744b7dd9eb4c02a6f19e866394e093",
+  "version": "0.69.0",
+  "sha256": "1906106509c104bb66bf3b147b4bdbba74ad9831fe92b09d007b73495a6512f8",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "لوحة الحماية: فحصان جديدان لسقوف ذاكرة الخدمات المشتركة وحدود اتصالات قواعد البيانات، يظهران حالتها ويعيدان تطبيقها بنقرة دون SSH."
+  "notes": "SEO (2/5): الأداء — ضغط gzip لكل المواقع، وخيار تخزين الملفات الثابتة في المتصفح لكل موقع."
 }
