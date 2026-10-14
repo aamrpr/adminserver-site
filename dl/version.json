@@ -1,7 +1,7 @@
 {
-  "version": "0.73.0",
-  "sha256": "69cf329fb9ac9ae76aa5355906a22eaacb4421783b35ab15ec6c5db1df692291",
+  "version": "0.74.0",
+  "sha256": "9a1a7527c7ca438e86a8ccb5a0a149b92b35bf652ac5166e9a7fe91162d0f297",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "الحظر في المراقبة يمنع العنوان على مستوى الجدار الناري (SSH وكل المنافذ) لا اللوحة فقط، مع إنهاء اتصالاته الحالية."
+  "notes": "ربط Cloudflare الاختياري لكل نطاق (البند 1): التحقق من الرمز، اكتشاف المنطقة، تخزين مشفّر — لمن DNS نطاقه على Cloudflare."
 }
