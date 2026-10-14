@@ -1,7 +1,7 @@
 {
-  "version": "0.67.0",
-  "sha256": "37b91eb0dae220be5ab2a416f7be4d381c0542dfafb7e0888f59ff3ce6c7e78e",
+  "version": "0.68.0",
+  "sha256": "d687b1efcb4f25d5fc2db4e4e7efa49d7c744b7dd9eb4c02a6f19e866394e093",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "SEO (1/5): العنوان القانوني — توجيه www↔بدون www لتوحيد عنوان الموقع في محركات البحث، بأمان دون كسر تجديد الشهادات."
+  "notes": "لوحة الحماية: فحصان جديدان لسقوف ذاكرة الخدمات المشتركة وحدود اتصالات قواعد البيانات، يظهران حالتها ويعيدان تطبيقها بنقرة دون SSH."
 }
