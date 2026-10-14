@@ -1,7 +1,7 @@
 {
-  "version": "0.66.0",
-  "sha256": "78ded3ca1c87ec815b82aefc620d632f685a6869f63348f23af892a9f3c32af0",
+  "version": "0.67.0",
+  "sha256": "37b91eb0dae220be5ab2a416f7be4d381c0542dfafb7e0888f59ff3ce6c7e78e",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "اختيار نوع الموقع كبطاقتين جنباً إلى جنب، وألوان البطاقات صحيحة في الوضعين الليلي والنهاري."
+  "notes": "SEO (1/5): العنوان القانوني — توجيه www↔بدون www لتوحيد عنوان الموقع في محركات البحث، بأمان دون كسر تجديد الشهادات."
 }
