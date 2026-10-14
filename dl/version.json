@@ -1,7 +1,7 @@
 {
-  "version": "0.81.0",
-  "sha256": "37be5e1fd03d808f4f62d2796565dbe09498af7f10fb9e93248753851930bf30",
+  "version": "0.82.0",
+  "sha256": "d7f853f9e947e6041b340a46846489e31ad7ae3a809c85d1847e0daa14cd419d",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.81.0 — إصلاحات Cloudflare: التحقق من سجلات البريد DKIM/DMARC، وإضافة سجل النطاق الفرعي وسجل wildcard تلقائيًا، وإصدار شهادة wildcard عبر DNS-01 مع انتظار انتشار السجل؛ وسدّ SSRF في وجهة النسخ الاحتياطي S3. Cloudflare fixes for mail DKIM/DMARC, automatic sub-domain and wildcard records, wildcard DNS-01 issuance with propagation wait, and an SSRF fix in the S3 backup destination."
+  "notes": "0.82.0 — إدارة حساب الأدمن: تغيير اسم مستخدم الأدمن من الإعدادات، وتعريف الأدمن بالدور لا بالاسم (reset-password يعمل بعد التغيير)، وإزالة الاسم الافتراضي admin من صفحة الدخول. Admin account management: rename the admin sign-in name from Settings, identify the admin by role (reset-password still works after a rename), and drop the default admin name from the sign-in form."
 }
