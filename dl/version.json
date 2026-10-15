@@ -1,7 +1,7 @@
 {
-  "version": "0.85.0",
-  "sha256": "fa321e302464b4f6870e5a1888b9b0a73165577f5c22b1c44dd7660e5e7106f6",
+  "version": "0.86.0",
+  "sha256": "6fcbbe3384c59be7cbfd59a5bcd6d13a85b0921d5557ed042db43df65bb4774c",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.85.0 — إصلاحان مهمّان: (1) اللوحة لم تعد تتجمّد عند «فعّل اسم البريد» — إصدار الشهادة يعمل الآن دون احتجاز القفل، فتبقى اللوحة مستجيبة. (2) نطاقات Cloudflare: فحص سجلات البريد يقرأ من واجهة Cloudflare مباشرة، فلا تظهر سجلات «ناقصة» وهي موجودة. Two important fixes: (1) the panel no longer freezes on 'activate mail name' — certificate issuance runs without holding the lock, so the panel stays responsive; (2) for Cloudflare domains, mail-record checks read from the Cloudflare API, so present records are no longer shown as missing."
+  "notes": "0.86.0 — زر «فعّل اسم البريد» يعرض «جارٍ إصدار الشهادة…» فور الضغط بدل أن يبدو بلا استجابة، ثم يعرض النتيجة أو سببها بوضوح. The 'use the mail name' button now shows 'Issuing the certificate…' immediately instead of appearing to do nothing, then shows the result or a clear reason."
 }
