@@ -1,7 +1,7 @@
 {
-  "version": "0.87.0",
-  "sha256": "318b121328adee9fb716918cb0c7d4315e30b0605c01b736eaa15ada52794fd7",
+  "version": "0.88.0",
+  "sha256": "77e1fcc4d4f7e2712b391eab0a52d4130565df0b59c6997062680f34c599353c",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.87.0 — رسالة واضحة عند بلوغ حدّ Let's Encrypt: بدل خطأ غامض، تشرح اللوحة أن الحدّ 5 شهادات لنفس الاسم خلال 7 أيام، وكم ساعة تنتظر قبل إصدار شهادة جديدة. Clear message when Let's Encrypt's rate limit is hit: instead of a cryptic error, the panel explains the 5-per-7-days limit and how many hours to wait before a new certificate can be issued."
+  "notes": "0.88.0 — صفحة «صحّة البريد» لكل نطاق: تفحص تلقائياً المنفذ 25، الاسم العكسي، القوائم السوداء، MX/SPF/DKIM/DMARC، الشهادة، وعمر النطاق، وتعطي نتيجة من 10 مع شرح كل بند وكيفية إصلاحه — فحص داخلي يشبه الجزء الخاص بالسيرفر في mail-tester. New per-domain Mail Health page: automatically checks outbound port 25, reverse DNS, blocklists, MX/SPF/DKIM/DMARC, the certificate, and domain age, giving a score out of 10 with a line on each item and how to fix it — a built-in check like the server side of mail-tester."
 }
