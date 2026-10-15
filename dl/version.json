@@ -1,7 +1,7 @@
 {
-  "version": "0.83.0",
-  "sha256": "55e2d9c915b928564631c33533e68cfe0cf57338c5d9379fb393d386e3d44b06",
+  "version": "0.84.0",
+  "sha256": "5c42193b12411977c47ac6462ad412ca8797a6f60da0394de0b1d3328d5eaba5",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.83.0 — شهادات وبريد نطاقات Cloudflare عبر DNS-01: النطاق المربوط بـ Cloudflare يحصل على شهادة SSL وبريد حتى لو كان موكّلاً (برتقالياً)، ورسالة واضحة عند تعذّر ذلك. Cloudflare-linked domains now get their SSL certificate and mail over DNS-01 — working even when the record is proxied (orange) — with a clear message when a domain is proxied without a token."
+  "notes": "0.84.0 — لوحة أذكى: إشعار واضح عند تأخّر شهادة اسم البريد (مثل حدّ Let's Encrypt) بدل الصمت، وإيقاف الإنذار الكاذب «النطاق لا يشير للسيرفر» لنطاقات Cloudflare الموكّلة، وتسجيل سبب فشل إصدار الشهادة. Smarter panel: a clear notification when a domain's mail-name certificate is delayed (e.g. a Let's Encrypt rate limit) instead of silence, no false 'domain no longer points here' alarm for proxied Cloudflare domains, and the reason for a failed issuance is logged."
 }
