@@ -1,7 +1,7 @@
 {
-  "version": "0.82.0",
-  "sha256": "d7f853f9e947e6041b340a46846489e31ad7ae3a809c85d1847e0daa14cd419d",
+  "version": "0.83.0",
+  "sha256": "55e2d9c915b928564631c33533e68cfe0cf57338c5d9379fb393d386e3d44b06",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.82.0 — إدارة حساب الأدمن: تغيير اسم مستخدم الأدمن من الإعدادات، وتعريف الأدمن بالدور لا بالاسم (reset-password يعمل بعد التغيير)، وإزالة الاسم الافتراضي admin من صفحة الدخول. Admin account management: rename the admin sign-in name from Settings, identify the admin by role (reset-password still works after a rename), and drop the default admin name from the sign-in form."
+  "notes": "0.83.0 — شهادات وبريد نطاقات Cloudflare عبر DNS-01: النطاق المربوط بـ Cloudflare يحصل على شهادة SSL وبريد حتى لو كان موكّلاً (برتقالياً)، ورسالة واضحة عند تعذّر ذلك. Cloudflare-linked domains now get their SSL certificate and mail over DNS-01 — working even when the record is proxied (orange) — with a clear message when a domain is proxied without a token."
 }
