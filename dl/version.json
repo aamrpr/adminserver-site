@@ -1,7 +1,7 @@
 {
-  "version": "0.86.0",
-  "sha256": "6fcbbe3384c59be7cbfd59a5bcd6d13a85b0921d5557ed042db43df65bb4774c",
+  "version": "0.87.0",
+  "sha256": "318b121328adee9fb716918cb0c7d4315e30b0605c01b736eaa15ada52794fd7",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.86.0 — زر «فعّل اسم البريد» يعرض «جارٍ إصدار الشهادة…» فور الضغط بدل أن يبدو بلا استجابة، ثم يعرض النتيجة أو سببها بوضوح. The 'use the mail name' button now shows 'Issuing the certificate…' immediately instead of appearing to do nothing, then shows the result or a clear reason."
+  "notes": "0.87.0 — رسالة واضحة عند بلوغ حدّ Let's Encrypt: بدل خطأ غامض، تشرح اللوحة أن الحدّ 5 شهادات لنفس الاسم خلال 7 أيام، وكم ساعة تنتظر قبل إصدار شهادة جديدة. Clear message when Let's Encrypt's rate limit is hit: instead of a cryptic error, the panel explains the 5-per-7-days limit and how many hours to wait before a new certificate can be issued."
 }
