@@ -1,7 +1,7 @@
 {
-  "version": "0.89.0",
-  "sha256": "3c9e08d8cd17ac01c75c6a2565cf364058ced608cb05c3fd4ebe5f59067e9f0c",
+  "version": "0.90.0",
+  "sha256": "63c1234b32ef8d4dcb9288a70bb8a15e6cbec57735623a82f3a272627062b56d",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.89.0 — إصلاح: على أنظمة SELinux، تثبيت حزمة semanage (policycoreutils-python-utils) قبل ضبط سياق مجلد البريد و phpMyAdmin، فلا يفشل الضبط بصمت ولا تنكسر صناديق البريد (Internal error) عند أول تثبيت. Fix: on SELinux systems, install the semanage package (policycoreutils-python-utils) before setting the SELinux context of the mail store and phpMyAdmin, so the context is actually applied and mailboxes no longer fail to autocreate on a fresh install."
+  "notes": "0.90.0 — جديد: تبويب «التوجيه» لكل موقع — غيّر مجلد جذر النطاق الرئيسي إلى أي مجلد داخل الحساب (مثل public في Laravel)، وغيّر مجلد أي نطاق فرعي قائم ليتخطّى التوجيه الشامل. وإصلاح: ربط Cloudflare لنطاق ثانٍ صار يُظهر سبب الفشل الحقيقي بدل تحديث الصفحة بصمت. New: a per-site Routing tab — point the main domain at any folder in the account (e.g. public for Laravel), and change an existing sub-domain's folder so it overrides the wildcard. Fix: linking a second domain to Cloudflare now shows the real error instead of silently reloading the page."
 }
