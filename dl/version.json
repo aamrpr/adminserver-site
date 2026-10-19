@@ -1,7 +1,7 @@
 {
-  "version": "0.91.0",
-  "sha256": "7cb397f79c1303ac08920bd7fb4404c6a15ba622655ca85f3afe0a80668419ec",
+  "version": "0.91.1",
+  "sha256": "39921ca933b1b07e1b1ada5a3a7c3a34b7d417feca99ff274e32a9df0641dc58",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "جدار حماية لكل موقع، واتصال خارجي بقاعدة البيانات عبر dbconnection.النطاق. / Per-site firewall, and outside database access through dbconnection.<domain>."
+  "notes": "عند رفض رمز Cloudflare تظهر صفحة DNS السبب وزر فصل الربط. / When Cloudflare rejects the token, the DNS page shows the reason and an unlink button."
 }
