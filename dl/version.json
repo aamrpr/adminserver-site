@@ -1,7 +1,7 @@
 {
-  "version": "0.90.2",
-  "sha256": "b393343f65294350c61789fc6208226a5741c26635e7a761559ba81c7fbafe02",
+  "version": "0.91.0",
+  "sha256": "7cb397f79c1303ac08920bd7fb4404c6a15ba622655ca85f3afe0a80668419ec",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "0.90.2 — مسار توجيه النطاق الرئيسي يبدأ من مجلد الحساب، مثل domains/example.com/public_html. The main domain folder path starts at the account home, such as domains/example.com/public_html."
+  "notes": "جدار حماية لكل موقع، واتصال خارجي بقاعدة البيانات عبر dbconnection.النطاق. / Per-site firewall, and outside database access through dbconnection.<domain>."
 }
