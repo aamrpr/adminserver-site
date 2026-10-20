@@ -1,7 +1,7 @@
 {
-  "version": "0.91.6",
-  "sha256": "befbf7beffec09c0994bc0e98b8c8e01a557239ea0c7009b9f8095391a05b389",
+  "version": "0.91.7",
+  "sha256": "62e3c538c239f542927a24b8d08f15c62f10e1f515f450a6787d726df3cf57c1",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "تحصينات أمنية (حذف مفتاح الواجهة قبل PHP، تعطيل دوال الصدفة في PHP، تشفير سرّ التحقق بخطوتين) وتنبيه عند عدم استماع تطبيق Node على منفذ اللوحة. / Security hardening and a clear notice when a Node app is not listening on the panel socket."
+  "notes": "دليل اللوحة: دليل بدء سريع وأسئلة شائعة وقسم مشاكل وحلولها (بالعربية والإنجليزية مع صور). / Guide: a getting-started walkthrough, FAQ, and common-problems section (bilingual, with mockups)."
 }
