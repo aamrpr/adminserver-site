@@ -1,7 +1,7 @@
 {
-  "version": "0.91.7",
-  "sha256": "460d7867e4f9dd90eb29e3f7511ead97ec51064c2999edb995122346de71666e",
+  "version": "0.91.8",
+  "sha256": "bacc00a4107ab5170806fd0fa151958693411b0c0753750156f0ba1ec39d15de",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "دليل اللوحة (بدء سريع وأسئلة ومشاكل شائعة)، واختفاء تنبيهات الحساب فور الإصلاح، والتحقق من وصول النطاق للسيرفر خلف بروكسي Cloudflare. / In-panel guide, account alerts that clear when fixed, and verifying a domain reaches the server behind a Cloudflare proxy."
+  "notes": "صحة البريد: التحقق من وجود سجلات DNS عبر DNS العام (يُصلح ظهورها «مفقودة» للنطاقات المُدارة على Cloudflare/خارج السيرفر). / Mail health: verify DNS records against public DNS (fixes false missing for domains hosted off-server/Cloudflare)."
 }
