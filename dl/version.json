@@ -1,7 +1,7 @@
 {
-  "version": "0.91.2",
-  "sha256": "d14321a75a92f1a24ddc2c3de01aa6f6d615a92d409c42afe911ee0f480a69c3",
+  "version": "0.91.3",
+  "sha256": "a44be36607a27c45fb843aae3a8c111605df2e5d6e0e2485e09232b8f09d8a37",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "الأسماء بلا موقع تعرض صفحة أو يُغلق الاتصال. والاتصال البعيد بقاعدة البيانات زر ومفتاح، مع إصلاح سجل DNS. / A name with no website shows a page or the connection closes. Remote database access is a button and a switch, with a DNS-record fix."
+  "notes": "نافذة الاتصال البعيد تقبل الاتصال عبر اسم النطاق مع التشفير فقط، لقواعد ذلك النطاق ونطاقاته الفرعية. / The remote-connection window accepts a connection only through the domain's name with encryption, for that domain and its subdomains."
 }
