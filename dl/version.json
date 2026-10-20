@@ -1,7 +1,7 @@
 {
-  "version": "0.91.1",
-  "sha256": "39921ca933b1b07e1b1ada5a3a7c3a34b7d417feca99ff274e32a9df0641dc58",
+  "version": "0.91.2",
+  "sha256": "d14321a75a92f1a24ddc2c3de01aa6f6d615a92d409c42afe911ee0f480a69c3",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "عند رفض رمز Cloudflare تظهر صفحة DNS السبب وزر فصل الربط. / When Cloudflare rejects the token, the DNS page shows the reason and an unlink button."
+  "notes": "الأسماء بلا موقع تعرض صفحة أو يُغلق الاتصال. والاتصال البعيد بقاعدة البيانات زر ومفتاح، مع إصلاح سجل DNS. / A name with no website shows a page or the connection closes. Remote database access is a button and a switch, with a DNS-record fix."
 }
