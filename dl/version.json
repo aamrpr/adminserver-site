@@ -1,7 +1,7 @@
 {
-  "version": "0.91.3",
-  "sha256": "a44be36607a27c45fb843aae3a8c111605df2e5d6e0e2485e09232b8f09d8a37",
+  "version": "0.91.4",
+  "sha256": "b51b3361e1922614843f7ee588d25ae3a04cceedd39a563d33ff71e5d49c845a",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "نافذة الاتصال البعيد تقبل الاتصال عبر اسم النطاق مع التشفير فقط، لقواعد ذلك النطاق ونطاقاته الفرعية. / The remote-connection window accepts a connection only through the domain's name with encryption, for that domain and its subdomains."
+  "notes": "إصلاح الاتصال البعيد: الباب يفتح على عنوان السيرفر، ويشترط اسم النطاق والتشفير. / Fix remote database access: the door listens on the server's address and requires the domain name and encryption."
 }
