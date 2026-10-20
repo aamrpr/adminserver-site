@@ -1,7 +1,7 @@
 {
-  "version": "0.91.5",
-  "sha256": "9c3dd1b320d0dd2fe10aa8cfa2347b2b7c4bad6281ad037af08722c681c371e9",
+  "version": "0.91.6",
+  "sha256": "befbf7beffec09c0994bc0e98b8c8e01a557239ea0c7009b9f8095391a05b389",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "تغيير بورت اللوحة من الإعدادات مع تأكيد وتراجع تلقائي، وحصر عدد التنصيبات. / Change the panel port from Settings with confirm-and-rollback, and count installations."
+  "notes": "تحصينات أمنية (حذف مفتاح الواجهة قبل PHP، تعطيل دوال الصدفة في PHP، تشفير سرّ التحقق بخطوتين) وتنبيه عند عدم استماع تطبيق Node على منفذ اللوحة. / Security hardening and a clear notice when a Node app is not listening on the panel socket."
 }
