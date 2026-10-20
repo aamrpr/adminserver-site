@@ -1,7 +1,7 @@
 {
-  "version": "0.91.4",
-  "sha256": "b51b3361e1922614843f7ee588d25ae3a04cceedd39a563d33ff71e5d49c845a",
+  "version": "0.91.5",
+  "sha256": "9c3dd1b320d0dd2fe10aa8cfa2347b2b7c4bad6281ad037af08722c681c371e9",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "إصلاح الاتصال البعيد: الباب يفتح على عنوان السيرفر، ويشترط اسم النطاق والتشفير. / Fix remote database access: the door listens on the server's address and requires the domain name and encryption."
+  "notes": "تغيير بورت اللوحة من الإعدادات مع تأكيد وتراجع تلقائي، وحصر عدد التنصيبات. / Change the panel port from Settings with confirm-and-rollback, and count installations."
 }
