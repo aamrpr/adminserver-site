@@ -1,7 +1,7 @@
 {
-  "version": "0.91.9",
-  "sha256": "84b054a884e2a2177760561729b260b259051c4790e2acdfb0eae08bff2b2b62",
+  "version": "0.91.10",
+  "sha256": "2335abe749af28d66907f598094648a0ed258b0a951588f5659ed6f60191bbca",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "لكل نطاق فرعي الآن إعدادات خادم ويب مستقلة (nginx/Apache) مثل النطاق الرئيسي، ونقل الطرفية إلى مستوى الحساب، مع إصلاح عمل ملفات .htaccess (Laravel/WordPress) على مواقع Apache. / Each sub-domain now has its own web server choice (nginx/Apache) like a main domain, the terminal moved to the account level, and .htaccess front-controllers (Laravel/WordPress) on Apache sites are fixed."
+  "notes": "تسجيل أخطاء Apache لكل حساب في ملفّ عادي بدل أنبوب rotatelogs الذي كان يفشل تحت NoNewPrivileges مع SELinux، فأصبحت أخطاء 500/403 قابلة للتشخيص (مع تدوير عبر logrotate). / Per-account Apache error logs now write to a plain file instead of the rotatelogs pipe that failed under NoNewPrivileges+SELinux, so 500/403 errors are diagnosable (rotated via logrotate)."
 }
