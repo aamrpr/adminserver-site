@@ -1,7 +1,7 @@
 {
-  "version": "0.91.10",
-  "sha256": "2335abe749af28d66907f598094648a0ed258b0a951588f5659ed6f60191bbca",
+  "version": "0.91.11",
+  "sha256": "57e9d1a4a27eef54f6af0766095903f05421a6ee7f7a764bfda0f3b0ae016c55",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "تسجيل أخطاء Apache لكل حساب في ملفّ عادي بدل أنبوب rotatelogs الذي كان يفشل تحت NoNewPrivileges مع SELinux، فأصبحت أخطاء 500/403 قابلة للتشخيص (مع تدوير عبر logrotate). / Per-account Apache error logs now write to a plain file instead of the rotatelogs pipe that failed under NoNewPrivileges+SELinux, so 500/403 errors are diagnosable (rotated via logrotate)."
+  "notes": "لقد تم إغلاق ثغرات PHP + MySQL وإضافة جديدة. / PHP + MySQL vulnerabilities have been closed, and a new feature was added."
 }
