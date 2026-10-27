@@ -1,7 +1,7 @@
 {
-  "version": "0.91.11",
-  "sha256": "57e9d1a4a27eef54f6af0766095903f05421a6ee7f7a764bfda0f3b0ae016c55",
+  "version": "0.91.12",
+  "sha256": "20d0a2288cda8953a6481ad2894ee7cfa8640e4882f95919a34f46aff6184fd6",
   "url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz",
   "sig_url": "https://aamrpr.github.io/adminserver-site/dl/adminserver.tar.gz.sig",
-  "notes": "لقد تم إغلاق ثغرات PHP + MySQL وإضافة جديدة. / PHP + MySQL vulnerabilities have been closed, and a new feature was added."
+  "notes": "إصلاح استيراد صناديق البريد: كان الحدّ العام لحجم الطلب (64 كيلوبايت) يقطع رفع ملف البريد فتظهر رسالة «تعذّر الاتصال بخدمة الوكيل»؛ الآن مسار الاستيراد مستثنى مثل رفع الملفات. / Fix mailbox import: the global 64 KiB request-body cap was truncating the upload and showing \"could not reach the agent service\"; the import path is now exempt like file uploads."
 }
